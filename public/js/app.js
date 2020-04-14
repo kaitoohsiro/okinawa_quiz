@@ -2269,6 +2269,7 @@ __webpack_require__.r(__webpack_exports__);
         this.showQuestion = true;
         this.showExplain = false;
         this.questionCount++;
+        this.choices = [this.quiz[this.questionCount - 1].correct, this.quiz[this.questionCount - 1].choice1, this.quiz[this.questionCount - 1].choice2];
       } else {
         this.showQuestion = false;
         this.showExplain = false;
@@ -40408,11 +40409,11 @@ var render = function() {
   return _c("div", { attrs: { id: "quiz" } }, [
     _c("div", { staticClass: "heighta" }),
     _vm._v(" "),
-    !_vm.endMsg
-      ? _c("div", { staticClass: "quiz_card" }, [
-          _c("div", { staticClass: "question_title_card" }, [
-            _c("div", { staticClass: "question_title" }, [
-              _c("div", { staticClass: "box14" }, [
+    _c("div", { staticClass: "quiz_card" }, [
+      _c("div", { staticClass: "question_title_card" }, [
+        _c("div", { staticClass: "question_title" }, [
+          !_vm.endMsg
+            ? _c("div", { staticClass: "box14" }, [
                 _c("p", [
                   _c("span", [
                     _vm._v(
@@ -40425,40 +40426,40 @@ var render = function() {
                   ])
                 ])
               ])
-            ])
-          ]),
-          _vm._v(" "),
-          _vm.showQuestion
-            ? _c("div", [
-                _c(
-                  "ul",
-                  { staticClass: "choice_card" },
-                  _vm._l(_vm.choices, function(choice) {
-                    return _c(
-                      "li",
-                      {
-                        staticClass: "choice",
-                        on: {
-                          click: function($event) {
-                            return _vm.checkAnswer(choice)
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                        " +
-                            _vm._s(choice) +
-                            "\n                    "
-                        )
-                      ]
-                    )
-                  }),
-                  0
-                )
-              ])
             : _vm._e()
         ])
-      : _vm._e(),
+      ]),
+      _vm._v(" "),
+      _vm.showQuestion
+        ? _c("div", [
+            _c(
+              "ul",
+              { staticClass: "choice_card" },
+              _vm._l(_vm.choices, function(choice) {
+                return _c(
+                  "li",
+                  {
+                    staticClass: "choice",
+                    on: {
+                      click: function($event) {
+                        return _vm.checkAnswer(choice)
+                      }
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(choice) +
+                        "\n                    "
+                    )
+                  ]
+                )
+              }),
+              0
+            )
+          ])
+        : _vm._e()
+    ]),
     _vm._v(" "),
     _vm.showExplain
       ? _c("div", { staticClass: "explain" }, [
