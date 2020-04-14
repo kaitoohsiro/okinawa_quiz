@@ -2269,7 +2269,15 @@ __webpack_require__.r(__webpack_exports__);
         this.showQuestion = true;
         this.showExplain = false;
         this.questionCount++;
-        this.choices = [this.quiz[this.questionCount - 1].correct, this.quiz[this.questionCount - 1].choice1, this.quiz[this.questionCount - 1].choice2];
+        this.choices = [];
+        this.choices.push(this.quiz[this.questionCount - 1].correct, this.quiz[this.questionCount - 1].choice1, this.quiz[this.questionCount - 1].choice2);
+
+        for (var i = this.choices.length - 1; i > 0; i--) {
+          var r = Math.floor(Math.random() * (i + 1));
+          var tmp = this.choices[i];
+          this.choices[i] = this.choices[r];
+          this.choices[r] = tmp;
+        }
       } else {
         this.showQuestion = false;
         this.showExplain = false;
@@ -40852,20 +40860,6 @@ var render = function() {
           }
         },
         [_vm._v("Login")]
-      ),
-      _vm._v(" "),
-      _c(
-        "li",
-        {
-          staticClass: "tab__item",
-          class: { "tab__item--active": _vm.tab === 2 },
-          on: {
-            click: function($event) {
-              _vm.tab = 2
-            }
-          }
-        },
-        [_vm._v("Register")]
       )
     ]),
     _vm._v(" "),
@@ -41080,7 +41074,7 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _vm._m(1)
+              _c("div", { staticClass: "form__button" })
             ]
           )
         ]
@@ -41098,18 +41092,6 @@ var staticRenderFns = [
         "button",
         { staticClass: "button button--inverse", attrs: { type: "submit" } },
         [_vm._v("login")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form__button" }, [
-      _c(
-        "button",
-        { staticClass: "button button--inverse", attrs: { type: "submit" } },
-        [_vm._v("register")]
       )
     ])
   }
