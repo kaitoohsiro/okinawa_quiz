@@ -30,10 +30,10 @@
                     </div>
                     <div class="fotter_sns">
                         <i class="fas fa-share-alt"></i>
-                        <a href="https://www.facebook.com/sharer.php?src=http://localhost:3000/quizHome&t=備忘録ブログです" title="Facebookでシェア" onclick="javascript:window.open(this.href, '_blank', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=800,width=600');return false;">
+                        <a href="https://www.facebook.com/sharer.php?src=http://ok-okinawa-quiz.herokuapp.com/&t=沖縄クイズ" title="Facebookでシェア" onclick="javascript:window.open(this.href, '_blank', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=800,width=600');return false;">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://twitter.com/intent/tweet?url=http://localhost:3000/quizHome&text=沖縄クイズ" target="blank_">
+                        <a href="https://twitter.com/intent/tweet?url=http://ok-okinawa-quiz.herokuapp.com/&text=沖縄クイズ" target="blank_">
                             <i class="fab fa-twitter"></i>
                         </a>
                     </div>

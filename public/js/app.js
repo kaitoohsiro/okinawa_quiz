@@ -40507,7 +40507,24 @@ var render = function() {
             _vm._v(" "),
             _c("p", [_vm._v(_vm._s(_vm.totalAnswer) + " 問正解")]),
             _vm._v(" "),
-            _vm._m(0)
+            _c("ul", [
+              _c(
+                "li",
+                { staticClass: "btn end" },
+                [
+                  _c("RouterLink", { attrs: { to: "/" } }, [
+                    _vm._v(
+                      "\n                            TOPへ\n                        "
+                    )
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _vm._m(0)
+            ])
           ])
         ])
       : _vm._e()
@@ -40518,23 +40535,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("ul", [
-      _c("li", { staticClass: "btn end" }, [
-        _c("a", { attrs: { href: "/" } }, [
-          _vm._v(
-            "\n                            TOPへ\n                        "
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _c("li", { staticClass: "btn end" }, [
-        _c("a", { attrs: { href: "/quiz" } }, [
-          _vm._v(
-            "\n                            リトライ\n                        "
-          )
-        ])
+    return _c("li", { staticClass: "btn end" }, [
+      _c("a", { attrs: { href: "/quiz" } }, [
+        _vm._v(
+          "\n                            リトライ\n                        "
+        )
       ])
     ])
   }
@@ -40692,7 +40697,7 @@ var staticRenderFns = [
           {
             attrs: {
               href:
-                "https://www.facebook.com/sharer.php?src=http://localhost:3000/quizHome&t=備忘録ブログです",
+                "https://www.facebook.com/sharer.php?src=http://ok-okinawa-quiz.herokuapp.com/&t=沖縄クイズ",
               title: "Facebookでシェア",
               onclick:
                 "javascript:window.open(this.href, '_blank', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=800,width=600');return false;"
@@ -40706,7 +40711,7 @@ var staticRenderFns = [
           {
             attrs: {
               href:
-                "https://twitter.com/intent/tweet?url=http://localhost:3000/quizHome&text=沖縄クイズ",
+                "https://twitter.com/intent/tweet?url=http://ok-okinawa-quiz.herokuapp.com/&text=沖縄クイズ",
               target: "blank_"
             }
           },

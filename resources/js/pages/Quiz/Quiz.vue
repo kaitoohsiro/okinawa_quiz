@@ -47,9 +47,9 @@
                 <p>{{ totalAnswer }} 問正解</p>
                 <ul>
                     <li class="btn end">
-                        <a href="/">
+                        <RouterLink to="/">
                             TOPへ
-                        </a>
+                        </RouterLink>
                     </li>
                         <br>
                     <li class="btn end">
