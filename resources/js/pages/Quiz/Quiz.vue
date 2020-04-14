@@ -116,11 +116,18 @@
                     this.showQuestion = true;
                     this.showExplain = false;
                     this.questionCount++;
-                    this.choices = [
+                    this.choices = [];
+                    this.choices.push(
                         this.quiz[this.questionCount - 1].correct,
                         this.quiz[this.questionCount - 1].choice1,
                         this.quiz[this.questionCount - 1].choice2,
-                    ]
+                    )
+                    for(var i = this.choices.length - 1; i > 0; i--){
+                        var r = Math.floor(Math.random() * (i + 1));
+                        var tmp = this.choices[i];
+                        this.choices[i] = this.choices[r];
+                        this.choices[r] = tmp;
+                    }
                 } else {
                     this.showQuestion = false;
                     this.showExplain = false;
