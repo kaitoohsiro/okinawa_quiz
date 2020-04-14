@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Service\api\Quiz;
+
+use App\Repository\Quiz\QuizWriteRepository;
+use Illuminate\Support\Facades\DB;
+
+class DeleteQuizService
+{
+    private $quizWriteRepository;
+
+    public function __construct(QuizWriteRepository $quizWriteRepository)
+    {
+        $this->quizWriteRepository = $quizWriteRepository;
+    }
+
+    public function execute($quizId)
+    {
+        DB::transaction(function () use ($quizId) {
+            $this->quizWriteRepository->deleteQuiz($quizId);
+        });
+    }
+}

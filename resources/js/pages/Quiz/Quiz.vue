@@ -1,0 +1,263 @@
+<template>
+    <div id="quiz">
+        <div class="heighta"></div>
+        <!--問題-->
+        <div class="quiz_card" v-if="!endMsg">
+            <div class="question_title_card">
+                <div class="question_title">
+                    <div class="box14">
+                        <p>
+                            <span>
+                                QUESTION {{ questionCount }}. {{ quiz[questionCount - 1].question }}
+                            </span>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <!--選択肢-->
+            <div v-if="showQuestion">
+                <ul class="choice_card">
+                    <li class="choice" v-for="choice in choices" @click="checkAnswer(choice)">
+                        {{ choice }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--解説-->
+        <div class="explain" v-if="showExplain">
+            <span v-if="matchAnswer">
+                <i class="far fa-circle"></i><span class="result correct">  正解！</span>
+            </span>
+            <span v-else>
+                <i class="fas fa-times"></i><span class="result bad"> 不正解</span>
+            </span>
+            <br>
+            <p class="explain_main">
+                <span class="explain_title">解説</span> : {{ quiz[questionCount - 1].explain_sentence }}
+            </p>
+            <div class="next btn" @click="next">
+                <span>次へ</span>
+            </div>
+        </div>
+        <!--クイズ終了-->
+        <div v-if="endMsg">
+            <div class="end_card">
+                <p>結果</p>
+                <p>{{ totalAnswer }} 問正解</p>
+                <ul>
+                    <li class="btn end">
+                        <a href="/">
+                            TOPへ
+                        </a>
+                    </li>
+                        <br>
+                    <li class="btn end">
+                        <a href="/quiz">
+                            リトライ
+                        </a>
+                    </li>
+                </ul>
+<!--                <p>Twitterで共有</p>-->
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    export default {
+        data: function () {
+            return {
+                quiz: null,
+                totalAnswer: 0,
+                totalCount: 0,
+                questionCount: 1,
+                choices: [],
+                showQuestion: true,
+                showExplain: false,
+                matchAnswer: false,
+                endMsg: false
+            }
+        },
+        created() {
+            this.getQuiz();
+        },
+        methods: {
+            getQuiz: function (){
+                axios
+                    .get('/api/quiz')
+                    .then(response => {
+                        this.quiz = response.data;
+                        this.totalCount = this.quiz.length;
+                        console.log(this.totalCount);
+                        this.showAnswer(this.questionCount - 1);
+                    })
+            },
+            showAnswer: function (index) {
+                this.choices.push(
+                    this.quiz[index].correct,
+                    this.quiz[index].choice1,
+                    this.quiz[index].choice2,
+                )
+            },
+            checkAnswer: function (choice) {
+                this.showQuestion = false;
+                this.showExplain = true;
+                let answer = this.quiz[this.questionCount - 1].correct;
+                if (answer === choice) {
+                    this.totalAnswer++;
+                    this.matchAnswer = true;
+                } else {
+                    this.matchAnswer = false;
+                }
+            },
+            next: function () {
+                if (this.questionCount < this.totalCount) {
+                    this.showQuestion = true;
+                    this.showExplain = false;
+                    this.questionCount++;
+
+                } else {
+                    this.showQuestion = false;
+                    this.showExplain = false;
+                    this.matchanswer = false;
+                    this.endMsg = true;
+                }
+            }
+        }
+    }
+</script>
+
+
+<style scoped>
+    #quiz {
+        text-align: center;
+        height: 100vh;
+    }
+    .heighta {
+        height: 10vh;
+    }
+    .quiz_card {
+        text-align: center;
+        margin: auto 20%;
+    }
+    .choice_card {
+        padding-left: 0;
+    }
+    .choice_card .choice {
+        list-style: none;
+        padding: 0.8em 0.5em;
+        cursor: pointer;
+        background-color: #eaeaea;
+        width: 100%;
+        margin: 30px auto;
+        border-radius: 8px;
+        transition: transform ease .6s;
+    }
+    .choice_card .choice:active {
+        transform: translateY(5px);
+    }
+    /* 文字サイズ */
+    .result, .fa-circle, .fa-times {
+        font-size: 2.2rem;
+    }
+    /* いろ */
+    .fa-circle, .correct {
+        color: red;
+    }
+    .fa-times, .bad {
+        color: blue;
+    }
+    /* 太さ */
+    .result {
+        font-weight: bold;
+    }
+    .end_card a {
+        text-decoration: none;
+        color: #000;
+        font-weight: bold;
+    }
+    .box14 {
+        padding: 1.5em 0.5em;
+        margin: 2em 0;
+        color: #565656;
+        background: #ffeaea;
+        box-shadow: 0px 0px 0px 10px #ffeaea;
+        border: dashed 2px #ffc3c3;
+        border-radius: 8px;
+    }
+    .box14 p {
+        font-size: 1.3rem;
+        margin: 0;
+        padding: 0;
+    }
+    .explain {
+        border: 3px solid #999;
+        margin: auto 20%;
+        padding: 0.8em 0.5em;
+        border-radius: 8px;
+    }
+    .explain p {
+        font-size: 1.3rem;
+    }
+    .explain_main {
+        text-align: left;
+    }
+    .explain_title {
+        font-weight: bold;
+        font-size: 1.3rem;
+    }
+    .btn {
+        margin: 0.8em 3em;
+        border: 1px solid #fff;
+        background-color: rgba(250,207,76,.97);
+        box-shadow: 0 4px rgba(189, 156, 57, 0.97);
+        border-radius: 100px;
+        transition: transform ease .4s;
+        height: 50px;
+        cursor: pointer;
+    }
+    .btn:active {
+        transform: translateY(4px);
+    }
+    .btn span {
+        padding: auto;
+        color: #fff;
+        font-size: 1.5rem;
+    }
+    .end_card {
+        border: 3px solid #999;
+        margin: auto 20%;
+        padding: 0.8em 0.5em;
+        border-radius: 8px;
+    }
+    .end_card p {
+        font-size: 2rem;
+    }
+    .end_card ul {
+        padding-left: 0;
+    }
+    .end {
+        list-style: none;
+    }
+    .btn a {
+        padding: auto;
+        color: #fff;
+        font-size: 1.5rem;
+    }
+
+    @media screen and (max-width: 414px) {
+        .explain {
+            margin: auto 0;
+        }
+        .quiz_card {
+            margin: auto 10px;
+        }
+        .choice_card .choice {
+            width: 95%;
+        }
+        .end {
+            margin: auto 0;
+        }
+    }
+</style>
