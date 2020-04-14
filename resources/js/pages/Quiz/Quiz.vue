@@ -2,10 +2,10 @@
     <div id="quiz">
         <div class="heighta"></div>
         <!--問題-->
-        <div class="quiz_card" v-if="!endMsg">
+        <div class="quiz_card">
             <div class="question_title_card">
                 <div class="question_title">
-                    <div class="box14">
+                    <div class="box14" v-if="!endMsg">
                         <p>
                             <span>
                                 QUESTION {{ questionCount }}. {{ quiz[questionCount - 1].question }}
@@ -116,7 +116,11 @@
                     this.showQuestion = true;
                     this.showExplain = false;
                     this.questionCount++;
-
+                    this.choices = [
+                        this.quiz[this.questionCount - 1].correct,
+                        this.quiz[this.questionCount - 1].choice1,
+                        this.quiz[this.questionCount - 1].choice2,
+                    ]
                 } else {
                     this.showQuestion = false;
                     this.showExplain = false;
