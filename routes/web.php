@@ -1,6 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
+
+// テスト、ローカルではhttp通信 本番環境ではhttps通信にする
+if(config('app.env') === 'production'){
+    // asset()やurl()がhttpsで生成される
+    URL::forceScheme('https');
+}
 
 /*
 |--------------------------------------------------------------------------
