@@ -9,6 +9,8 @@
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
+
+    <meta name="google-site-verification" content="NDKgva2rOLoYrStgx_l9lpouVROjJNp9AU1lHiAhhAM" />
 </head>
 <body>
     <div id="app"></div>
