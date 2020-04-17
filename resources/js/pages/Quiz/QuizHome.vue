@@ -308,7 +308,7 @@
         margin: auto;
         text-align: center;
         height: 50vh;
-        width: 80%;
+        width: 65vw;
     }
     .item_bottom div {
         margin-top: 10%;
