@@ -2,12 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-// テスト、ローカルではhttp通信 本番環境ではhttps通信にする
-if(config('app.env') === 'production'){
-    // asset()やurl()がhttpsで生成される
-    redirect()->secure('https');
-}
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
