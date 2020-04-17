@@ -165,6 +165,7 @@
         -ms-writing-mode: tb-rl;
         writing-mode: vertical-rl;
         margin: auto;
+        margin-top: 0px;
     }
     /* サイドヘッダーのメニュー */
     .side .quiz_nav {
