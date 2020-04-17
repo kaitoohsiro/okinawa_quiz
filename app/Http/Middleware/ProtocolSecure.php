@@ -17,8 +17,8 @@ class ProtocolSecure
     public function handle($request, Closure $next)
     {
         // 本番環境 httpsにリダイレクト
-        if (env('APP_ENV') === 'production') {
-            return redirect()->secure($request->getRequestUri(), 301);
+        if (config('app.env') === 'production') {
+            return redirect('https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
         }
 
         return $next($request);
