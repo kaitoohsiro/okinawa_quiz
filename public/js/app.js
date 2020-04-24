@@ -2090,6 +2090,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -40355,6 +40356,8 @@ var render = function() {
             "li",
             [
               _c("span", [_vm._v(_vm._s(item.question))]),
+              _vm._v(" "),
+              _c("span", [_vm._v(_vm._s(item.category_id))]),
               _vm._v(" "),
               _c(
                 "RouterLink",

@@ -10,6 +10,7 @@
             <ul>
                 <li v-for="item in quiz">
                     <span>{{ item.question }}</span>
+                    <span>{{ item.category_id }}</span>
                     <RouterLink :to="{name: 'quiz_edit', params: {list: item}}">編集</RouterLink>
                     <span @click="deleteCheck(item.id)">削除</span>
                 </li>
