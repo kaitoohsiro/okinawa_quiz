@@ -17,6 +17,7 @@ import EditQuiz from './pages/admin/edit/EditQuiz.vue'
 import QuizHome from './pages/Quiz/QuizHome.vue'
 
 // クイズメイン画面
+import Category from './pages/Quiz/QuizCategoryChoice.vue'
 import Quiz from './pages/Quiz/Quiz.vue'
 
 // vuexストアインポート
@@ -32,7 +33,12 @@ const routes = [
         component: QuizHome
     },
     {
+        path: '/category',
+        component: Category
+    },
+    {
         path: '/quiz',
+        name: 'quiz',
         component: Quiz
     },
     {

@@ -34,9 +34,9 @@ class GetQuizService
      * ユーザ用クイズ取得
      * @return mixed
      */
-    public function execute ()
+    public function execute ($categoryId)
     {
-        return $this->quizReadRepository->getQuiz();
+        return $this->quizReadRepository->getQuiz($categoryId);
     }
 
 }

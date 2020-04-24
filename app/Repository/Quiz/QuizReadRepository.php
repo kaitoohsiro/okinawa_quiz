@@ -51,9 +51,13 @@ class QuizReadRepository
      * ユーザ用クイズ取得
      * @return mixed
      */
-    public function getQuiz()
+    public function getQuiz($categoryId)
     {
-        $quizData = $this->model::inRandomOrder()
+        $quizData = $this->model;
+        if ($categoryId) {
+            $quizData = $quizData::where('category_id', '=', $categoryId);
+        }
+            $quizData = $quizData->inRandomOrder()
             ->take(5)
             ->get();
 

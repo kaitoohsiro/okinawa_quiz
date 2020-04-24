@@ -41,4 +41,4 @@ Route::post('admin/quiz/delete', 'api\admin\DeleteQuizController@handle')->name(
 
 // ユーザー用
 // 問題取得
-Route::get('/quiz', 'api\Quiz\QuizGetController@handle')->name('quiz');
+Route::post('/quiz', 'api\Quiz\QuizGetController@handle')->name('quiz');

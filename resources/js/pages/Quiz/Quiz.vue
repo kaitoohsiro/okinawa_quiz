@@ -53,7 +53,7 @@
                     </li>
                         <br>
                     <li class="btn end">
-                        <a href="/quiz">
+                        <a href="/category">
                             リトライ
                         </a>
                     </li>
@@ -76,7 +76,7 @@
                 showQuestion: true,
                 showExplain: false,
                 matchAnswer: false,
-                endMsg: false
+                endMsg: false,
             }
         },
         created() {
@@ -84,12 +84,14 @@
         },
         methods: {
             getQuiz: function (){
+                let categoryId = {
+                    id: this.$route.params.value
+                }
                 axios
-                    .get('/api/quiz')
+                    .post('/api/quiz', categoryId)
                     .then(response => {
                         this.quiz = response.data;
                         this.totalCount = this.quiz.length;
-                        console.log(this.totalCount);
                         this.showAnswer(this.questionCount - 1);
                     })
             },

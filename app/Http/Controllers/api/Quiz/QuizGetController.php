@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api\Quiz;
 
 use App\Http\Controllers\Controller;
 use App\Service\api\Quiz\GetQuizService;
+use Illuminate\Http\Request;
 
 class QuizGetController extends Controller
 {
@@ -18,9 +19,10 @@ class QuizGetController extends Controller
         $this->getQuizService = $getQuizService;
     }
 
-    public function handle()
+    public function handle(Request $request)
     {
-        $quizData = $this->getQuizService->execute();
+        $categoryId = $request->id;
+        $quizData = $this->getQuizService->execute($categoryId);
         return response()->json($quizData);
     }
 }

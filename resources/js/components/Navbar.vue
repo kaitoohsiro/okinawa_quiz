@@ -29,7 +29,7 @@
                             </RouterLink>
                         </li>
                         <li>
-                            <a href="/quiz">
+                            <a href="/category">
                                 <span @click="naviOpen1">Quiz</span>
                             </a>
                         </li>
@@ -210,7 +210,7 @@ export default {
             font-size: 1.5rem;
         }
         .header_title li {
-           list-style: none;
+            list-style: none;
             height: 20px;
         }
         .header_title li a {

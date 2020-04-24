@@ -64,7 +64,7 @@
                             <li>
                                 <span>あなたがまだ見ぬ<br>沖縄をクイズで<br>体感せよ</span>
                                 <div class="quiz_start">
-                                    <Router-Link class="arrow_btn" to="quiz">
+                                    <Router-Link class="arrow_btn" to="category">
                                         スタート<storong><i class="fas fa-arrow-circle-right fa-fw"></i></storong>
                                     </Router-Link>
                                 </div>
@@ -95,7 +95,7 @@
                     <div class="item_bottom">
                         <h1 class="title-border">お知らせ</h1>
                         <div>
-                            <p class="info">1. 現在カテゴリー別でクイズ出題できるように製作中です.</p>
+                            <p class="info">1. 現在カテゴリー別でクイズ出題できるようになりました.</p>
                             <p class="info">2. 何か問題の誤りまたは、不具合等ありましたらお知らせください.</p>
                             <p class="info">3. 現在クイズ制作中ですので、何かある方は教えてくれると助かります.</p>
                         </div>
