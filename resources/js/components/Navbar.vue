@@ -4,7 +4,7 @@
             <ul>
                 <li>
                     <RouterLink class="nav" to="/">
-                        <span class="menu" id="title_menu"><i class="fas fa-bezier-curve"></i>  Okinawa Quiz</span>
+                        <span class="menu" id="title_menu"><i class="fas fa-chess-queen"></i>  Okinawa Quiz</span>
                     </RouterLink>
                 </li>
             </ul>

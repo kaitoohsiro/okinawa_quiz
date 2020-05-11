@@ -40312,7 +40312,7 @@ var render = function() {
           [
             _c("RouterLink", { staticClass: "nav", attrs: { to: "/" } }, [
               _c("span", { staticClass: "menu", attrs: { id: "title_menu" } }, [
-                _c("i", { staticClass: "fas fa-bezier-curve" }),
+                _c("i", { staticClass: "fas fa-chess-queen" }),
                 _vm._v("  Okinawa Quiz")
               ])
             ])
