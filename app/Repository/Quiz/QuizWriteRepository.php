@@ -63,7 +63,6 @@ class QuizWriteRepository
 
     public function deleteQuiz ($quizId)
     {
-        logger($quizId);
         $this->model::where('id', '=', $quizId)
             ->delete();
     }

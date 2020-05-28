@@ -57,7 +57,7 @@ class QuizReadRepository
         if ($categoryId) {
             $quizData = $quizData::where('category_id', '=', $categoryId);
         }
-            $quizData = $quizData->inRandomOrder()
+        $quizData = $quizData->inRandomOrder()
             ->take(5)
             ->get();
 
