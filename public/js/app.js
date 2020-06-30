@@ -40784,13 +40784,12 @@ var render = function() {
                         _vm._v(
                           "\n                                    スタート"
                         ),
-                        _c("storong", [
+                        _c("strong", [
                           _c("i", {
                             staticClass: "fas fa-arrow-circle-right fa-fw"
                           })
                         ])
-                      ],
-                      1
+                      ]
                     )
                   ],
                   1

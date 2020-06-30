@@ -65,7 +65,7 @@
                                 <span>あなたがまだ見ぬ<br>沖縄をクイズで<br>体感せよ</span>
                                 <div class="quiz_start">
                                     <Router-Link class="arrow_btn" to="category">
-                                        スタート<storong><i class="fas fa-arrow-circle-right fa-fw"></i></storong>
+                                        スタート<strong><i class="fas fa-arrow-circle-right fa-fw"></i></strong>
                                     </Router-Link>
                                 </div>
                             </li>
