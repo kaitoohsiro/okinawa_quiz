@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,15 @@
     <title>{{ config('app.name') }}</title>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="shortcut icon" href="{{ asset('/favicon.ico') }}">
-
+    <link rel="canonical" href="https://ok-okinawa-quiz.herokuapp.com/">
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
 
     <meta name="google-site-verification" content="NDKgva2rOLoYrStgx_l9lpouVROjJNp9AU1lHiAhhAM" />
 </head>
+
 <body>
     <div id="app"></div>
 </body>
+
 </html>
