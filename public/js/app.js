@@ -2091,6 +2091,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2106,7 +2107,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     getQuizList: function getQuizList() {
       var _this = this;
 
-      axios.get('/api/admin/quiz').then(function (response) {
+      axios.get("/api/admin/quiz").then(function (response) {
         return _this.quiz = response.data;
       });
     },
@@ -2128,7 +2129,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   id: _this2.quizId
                 };
                 _context.next = 4;
-                return axios.post('/api/admin/quiz/delete', quizId);
+                return axios.post("/api/admin/quiz/delete", quizId);
 
               case 4:
               case "end":
@@ -2765,32 +2766,51 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       current_slide: 0,
       slides: [{
-        img: './../../../images/okinawa1.jpg'
+        img: "./../../../images/okinawa1.jpg"
       }, {
-        img: './../../../images/okinawa2.jpg'
+        img: "./../../../images/okinawa2.jpg"
       }, {
-        img: './../../../images/okinawa3.jpg'
+        img: "./../../../images/okinawa3.jpg"
       }, {
-        img: './../../../images/okinawa4.jpg'
+        img: "./../../../images/okinawa4.jpg"
       }, {
-        img: './../../../images/okinawa5.jpg'
+        img: "./../../../images/okinawa5.jpg"
       }, {
-        img: './../../../images/okinawa7.jpg'
+        img: "./../../../images/okinawa7.jpg"
       }, {
-        img: './../../../images/okinawa8.jpg'
+        img: "./../../../images/okinawa8.jpg"
       }, {
-        img: './../../../images/okinawa9.jpg'
+        img: "./../../../images/okinawa9.jpg"
       }, {
-        img: './../../../images/okinawa10.jpg'
+        img: "./../../../images/okinawa10.jpg"
       }, {
-        img: './../../../images/okinawa11.jpg'
+        img: "./../../../images/okinawa11.jpg"
       }, {
-        img: './../../../images/okinawa13.jpg'
+        img: "./../../../images/okinawa13.jpg"
       }]
     };
   },
@@ -7797,7 +7817,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.content[data-v-7c830db5] {\n    display: flex;\n    font-family: 'Lustria','Ryumin Light KL',serif;\n}\n.main[data-v-7c830db5] {\n    /*flex: 1 0 auto;*/\n    /*display: flex;*/\n    /*align-items: center;*/\n    /*justify-content: center;*/\n    height: auto;\n    background: #fff;\n}\n/* サイドメニュー */\n.side[data-v-7c830db5] {\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    position: -webkit-sticky;\n    position: sticky;\n    top: 0px;\n    width: 35vw;\n    height: 100vh;\n    color: #999;\n    background: #fff;\n}\n/* ヘッダーの制作日 */\n.side .product_day[data-v-7c830db5] {\n    opacity: 0.5;\n    margin: 5px auto;\n    margin-top: 10%;\n    margin-bottom: 15%;\n}\n.side .product_day .year[data-v-7c830db5] {\n    margin-top: 10px;\n}\n.side .border[data-v-7c830db5] {\n    width: 10%;\n    border-bottom: 1px solid #999;\n    margin: 1px auto;\n}\n.side .okinawa_icon[data-v-7c830db5] {\n    width: 40%;\n    height: 20%;\n}\n.side .quiz_title[data-v-7c830db5] {\n    font-family: 'Lustria','Ryumin Light KL',serif;\n    font-size: 300%;\n    margin: 10px;\n    color: #000;\n}\n.side .quiz_menu[data-v-7c830db5] {\n    text-align: left;\n    -ms-writing-mode: tb-rl;\n    writing-mode: vertical-rl;\n    margin: auto;\n    margin-top: 0px;\n}\n/* サイドヘッダーのメニュー */\n.side .quiz_nav[data-v-7c830db5] {\n    list-style: none;\n    margin: auto 50%;\n    width: 20%;\n    cursor: pointer;\n}\n.side .quiz_nav a[data-v-7c830db5] {\n    color: #999;\n    text-decoration: none;\n}\n.fotter_sns i[data-v-7c830db5] {\n    margin: 8% 5%;\n    margin-top: 25%;\n    color: #999;\n    font-size: 1.3rem;\n    transition: 1.5s;\n}\n.fotter_sns .fa-facebook-f[data-v-7c830db5]:hover {\n    -webkit-transform: rotateX(360deg);\n    transform: rotateX(360deg);\n    color: #4966a0;\n}\n.fotter_sns .fa-twitter[data-v-7c830db5]:hover {\n    -webkit-transform: rotateX(360deg);\n    transform: rotateX(360deg);\n    color: #1da1f3;\n}\n\n/* main画像スライド */\n.slider-outer[data-v-7c830db5] {\n    position: relative;\n    width: 65vw;\n    height: 100vh;\n    overflow: hidden;\n    background-color: #000;\n    /*margin: auto;*/\n}\n.slider-inner[data-v-7c830db5] {\n    position: absolute;\n    top: 0;\n    width: 65vw;\n    height: 100vh;\n}\n.slider-outer .main_text[data-v-7c830db5] {\n    -ms-writing-mode: tb-rl;\n    writing-mode: vertical-rl;\n    align-items: center;\n    justify-content: center;\n}\n.slider-outer ul li[data-v-7c830db5] {\n    position: absolute;\n    margin: auto;\n    top: 30%;\n    left: 50%;\n    color: #fff;\n    z-index: 10;\n    list-style: none;\n    font-size: 300%;\n}\n.slide-img[data-v-7c830db5] {\n    top: 0;\n    width: 75vw;\n    height: 810px;\n    object-fit: cover;\n    opacity: 0.9;\n    z-index: 1;\n}\n.fade-enter-active[data-v-7c830db5], .fade-leave-active[data-v-7c830db5] {\n    transition: all 3s ease;\n}\n.fade-enter[data-v-7c830db5], .fade-leave-to[data-v-7c830db5] {\n    opacity: 0;\n}\n\n/* クイズスタート画面 */\n.item-center ul[data-v-7c830db5] {\n    align-items: center;\n    justify-content: center;\n}\n.item-center ul li[data-v-7c830db5] {\n    margin-top: 5%;\n    margin-bottom: 10%;\n    display: inline-block;\n    vertical-align: middle;\n    width: 25vw;\n}\n.item-center ul li[data-v-7c830db5]:nth-child(1) {\n    margin-left: 40px;\n}\n.item-center ul li[data-v-7c830db5]:nth-child(2) {\n    /*text-align: right;*/\n    width: 30vw;\n    margin-left: 40px;\n}\n.item-center ul li span[data-v-7c830db5] {\n    font-size: 2rem;\n    font-weight: lighter;\n}\n.item-center ul li img[data-v-7c830db5] {\n    opacity: 0.9;\n    width: 30vw;\n    height: 60vh;\n}\n.arrow_btn[data-v-7c830db5] {\n    display: inline-block;\n    position: relative;\n    margin-top: 10%;\n    width: 200px;\n    padding: 0.8em;\n    text-align: center;\n    text-decoration: none;\n    color: #1B1B1B;\n    background: #fff;\n    border-radius: 30px;\n    font-size: 1em;\n    border:1px solid #1B1B1B;\n    transition: transform ease .3s;\n}\n.arrow_btn[data-v-7c830db5]:hover {\n    cursor: pointer;\n    text-decoration: none;\n}\n.arrow_btn storong[data-v-7c830db5] {\n    display: inline-block;\n    text-decoration: none;\n    transition: transform ease .3s;\n}\n.arrow_btn:hover storong[data-v-7c830db5] {\n    cursor: pointer;\n    text-decoration: none;\n    transform: translateX(6px);\n}\n\n/*  サイト説明画面  */\n.item_bottom[data-v-7c830db5] {\n    color: #999;\n    margin: auto;\n    text-align: center;\n    height: 50vh;\n    width: 65vw;\n}\n.item_bottom div[data-v-7c830db5] {\n    margin-top: 10%;\n}\n.item_bottom p[data-v-7c830db5] {\n    width: 70%;\n    margin: auto;\n    line-height: 2rem;\n}\n.title-border[data-v-7c830db5] {\n    color: #444;\n    display: flex;\n    align-items: center;\n}\n.title-border[data-v-7c830db5]:before,\n.title-border[data-v-7c830db5]:after {\n    content: \"\";\n    flex-grow: 1;\n    height: 1px;\n    display: block;\n}\n.title-border[data-v-7c830db5]:before {\n    margin-right: 0.3em;\n    background: linear-gradient(-90deg, #888, transparent);\n}\n.title-border[data-v-7c830db5]:after {\n    margin-left: 0.4em;\n    background: linear-gradient(90deg, #888, transparent);\n}\n.item_bottom .info[data-v-7c830db5] {\n    align-items: center;\n    text-align: left;\n}\n.tel[data-v-7c830db5] {\n    display: none;\n}\n@media screen and (max-width: 1024px) {\n.side[data-v-7c830db5] {\n        display: none;\n}\n.item_bottom[data-v-7c830db5],\n    .slide-img[data-v-7c830db5],\n    .slider-inner[data-v-7c830db5],\n    .slider-outer[data-v-7c830db5]\n    {\n        width: 100vw;\n        height: 100vh;\n}\n.item_bottom[data-v-7c830db5] {\n        height: 25vh;\n}\n.item-center ul li[data-v-7c830db5] {\n        width: 40%;\n}\n.pc[data-v-7c830db5] {\n        display: none;\n}\n.tel[data-v-7c830db5] {\n        display: block;\n}\n}\n@media screen and (max-width: 768px) {\n.item_bottom[data-v-7c830db5] {\n        height: 25%;\n}\n.item_bottom[data-v-7c830db5]\n    {\n        height: 50vh;\n}\n}\n@media screen and (max-width: 414px) {\n.item-center ul[data-v-7c830db5] {\n        padding-left: 0px;\n}\n.item-center ul li[data-v-7c830db5] {\n        margin-top: 10%;\n        display: block;\n        text-align: center;\n        width: 100%;\n}\n.item-center ul li[data-v-7c830db5]:nth-child(1) {\n        margin-left: 0px;\n        margin-right: 0px;\n}\n.item-center ul li span[data-v-7c830db5] {\n        font-size: 2rem;\n}\n.item-center ul li[data-v-7c830db5]:nth-child(2) {\n        display: none;\n}\n.item_bottom[data-v-7c830db5] {\n        height: 30%;\n}\n}\n", ""]);
+exports.push([module.i, "\n.content[data-v-7c830db5] {\n  display: flex;\n  font-family: \"Lustria\", \"Ryumin Light KL\", serif;\n}\n.main[data-v-7c830db5] {\n  /*flex: 1 0 auto;*/\n  /*display: flex;*/\n  /*align-items: center;*/\n  /*justify-content: center;*/\n  height: auto;\n  background: #fff;\n}\n/* サイドメニュー */\n.side[data-v-7c830db5] {\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  position: -webkit-sticky;\n  position: sticky;\n  top: 0px;\n  width: 35vw;\n  height: 100vh;\n  color: #999;\n  background: #fff;\n}\n/* ヘッダーの制作日 */\n.side .product_day[data-v-7c830db5] {\n  opacity: 0.5;\n  margin: 5px auto;\n  margin-top: 10%;\n  margin-bottom: 15%;\n}\n.side .product_day .year[data-v-7c830db5] {\n  margin-top: 10px;\n}\n.side .border[data-v-7c830db5] {\n  width: 10%;\n  border-bottom: 1px solid #999;\n  margin: 1px auto;\n}\n.side .okinawa_icon[data-v-7c830db5] {\n  width: 40%;\n  height: 20%;\n}\n.side .quiz_title[data-v-7c830db5] {\n  font-family: \"Lustria\", \"Ryumin Light KL\", serif;\n  font-size: 300%;\n  margin: 10px;\n  color: #000;\n}\n.side .quiz_menu[data-v-7c830db5] {\n  text-align: left;\n  -ms-writing-mode: tb-rl;\n  writing-mode: vertical-rl;\n  margin: auto;\n  margin-top: 0px;\n}\n/* サイドヘッダーのメニュー */\n.side .quiz_nav[data-v-7c830db5] {\n  list-style: none;\n  margin: auto 50%;\n  width: 20%;\n  cursor: pointer;\n}\n.side .quiz_nav a[data-v-7c830db5] {\n  color: #999;\n  text-decoration: none;\n}\n.fotter_sns i[data-v-7c830db5] {\n  margin: 8% 5%;\n  margin-top: 25%;\n  color: #999;\n  font-size: 1.3rem;\n  transition: 1.5s;\n}\n.fotter_sns .fa-facebook-f[data-v-7c830db5]:hover {\n  -webkit-transform: rotateX(360deg);\n  transform: rotateX(360deg);\n  color: #4966a0;\n}\n.fotter_sns .fa-twitter[data-v-7c830db5]:hover {\n  -webkit-transform: rotateX(360deg);\n  transform: rotateX(360deg);\n  color: #1da1f3;\n}\n\n/* main画像スライド */\n.slider-outer[data-v-7c830db5] {\n  position: relative;\n  width: 65vw;\n  height: 100vh;\n  overflow: hidden;\n  background-color: #000;\n  /*margin: auto;*/\n}\n.slider-inner[data-v-7c830db5] {\n  position: absolute;\n  top: 0;\n  width: 65vw;\n  height: 100vh;\n}\n.slider-outer .main_text[data-v-7c830db5] {\n  -ms-writing-mode: tb-rl;\n  writing-mode: vertical-rl;\n  align-items: center;\n  justify-content: center;\n}\n.slider-outer ul li[data-v-7c830db5] {\n  position: absolute;\n  margin: auto;\n  top: 30%;\n  left: 50%;\n  color: #fff;\n  z-index: 10;\n  list-style: none;\n  font-size: 300%;\n}\n.slide-img[data-v-7c830db5] {\n  top: 0;\n  width: 75vw;\n  height: 810px;\n  object-fit: cover;\n  opacity: 0.9;\n  z-index: 1;\n}\n.fade-enter-active[data-v-7c830db5],\n.fade-leave-active[data-v-7c830db5] {\n  transition: all 3s ease;\n}\n.fade-enter[data-v-7c830db5],\n.fade-leave-to[data-v-7c830db5] {\n  opacity: 0;\n}\n\n/* クイズスタート画面 */\n.item-center ul[data-v-7c830db5] {\n  align-items: center;\n  justify-content: center;\n}\n.item-center ul li[data-v-7c830db5] {\n  margin-top: 5%;\n  margin-bottom: 10%;\n  display: inline-block;\n  vertical-align: middle;\n  width: 25vw;\n}\n.item-center ul li[data-v-7c830db5]:nth-child(1) {\n  margin-left: 40px;\n}\n.item-center ul li[data-v-7c830db5]:nth-child(2) {\n  /*text-align: right;*/\n  width: 30vw;\n  margin-left: 40px;\n}\n.item-center ul li span[data-v-7c830db5] {\n  font-size: 2rem;\n  font-weight: lighter;\n}\n.item-center ul li img[data-v-7c830db5] {\n  opacity: 0.9;\n  width: 30vw;\n  height: 60vh;\n}\n.arrow_btn[data-v-7c830db5] {\n  display: inline-block;\n  position: relative;\n  margin-top: 10%;\n  width: 200px;\n  padding: 0.8em;\n  text-align: center;\n  text-decoration: none;\n  color: #1b1b1b;\n  background: #fff;\n  border-radius: 30px;\n  font-size: 1em;\n  border: 1px solid #1b1b1b;\n  transition: transform ease 0.3s;\n}\n.arrow_btn[data-v-7c830db5]:hover {\n  cursor: pointer;\n  text-decoration: none;\n}\n.arrow_btn storong[data-v-7c830db5] {\n  display: inline-block;\n  text-decoration: none;\n  transition: transform ease 0.3s;\n}\n.arrow_btn:hover storong[data-v-7c830db5] {\n  cursor: pointer;\n  text-decoration: none;\n  transform: translateX(6px);\n}\n\n/*  サイト説明画面  */\n.item_bottom[data-v-7c830db5] {\n  color: #999;\n  margin: auto;\n  text-align: center;\n  height: 50vh;\n  width: 65vw;\n}\n.item_bottom div[data-v-7c830db5] {\n  margin-top: 10%;\n}\n.item_bottom p[data-v-7c830db5] {\n  width: 70%;\n  margin: auto;\n  line-height: 2rem;\n}\n.title-border[data-v-7c830db5] {\n  color: #444;\n  display: flex;\n  align-items: center;\n}\n.title-border[data-v-7c830db5]:before,\n.title-border[data-v-7c830db5]:after {\n  content: \"\";\n  flex-grow: 1;\n  height: 1px;\n  display: block;\n}\n.title-border[data-v-7c830db5]:before {\n  margin-right: 0.3em;\n  background: linear-gradient(-90deg, #888, transparent);\n}\n.title-border[data-v-7c830db5]:after {\n  margin-left: 0.4em;\n  background: linear-gradient(90deg, #888, transparent);\n}\n.item_bottom .info[data-v-7c830db5] {\n  align-items: center;\n  text-align: left;\n}\n.tel[data-v-7c830db5] {\n  display: none;\n}\n@media screen and (max-width: 1024px) {\n.side[data-v-7c830db5] {\n    display: none;\n}\n.item_bottom[data-v-7c830db5],\n  .slide-img[data-v-7c830db5],\n  .slider-inner[data-v-7c830db5],\n  .slider-outer[data-v-7c830db5] {\n    width: 100vw;\n    height: 100vh;\n}\n.item_bottom[data-v-7c830db5] {\n    height: 25vh;\n}\n.item-center ul li[data-v-7c830db5] {\n    width: 40%;\n}\n.pc[data-v-7c830db5] {\n    display: none;\n}\n.tel[data-v-7c830db5] {\n    display: block;\n}\n}\n@media screen and (max-width: 768px) {\n.item_bottom[data-v-7c830db5] {\n    height: 25%;\n}\n.item_bottom[data-v-7c830db5] {\n    height: 50vh;\n}\n}\n@media screen and (max-width: 414px) {\n.item-center ul[data-v-7c830db5] {\n    padding-left: 0px;\n}\n.item-center ul li[data-v-7c830db5] {\n    margin-top: 10%;\n    display: block;\n    text-align: center;\n    width: 100%;\n}\n.item-center ul li[data-v-7c830db5]:nth-child(1) {\n    margin-left: 0px;\n    margin-right: 0px;\n}\n.item-center ul li span[data-v-7c830db5] {\n    font-size: 2rem;\n}\n.item-center ul li[data-v-7c830db5]:nth-child(2) {\n    display: none;\n}\n.item_bottom[data-v-7c830db5] {\n    height: 30%;\n}\n}\n", ""]);
 
 // exports
 
@@ -40489,7 +40509,7 @@ var render = function() {
       _vm._v(" "),
       _vm.deleteDisplay
         ? _c("div", { staticClass: "delete" }, [
-            _vm._v("\n            " + _vm._s(_vm.quizId) + "\n            "),
+            _vm._v("\n      " + _vm._s(_vm.quizId) + "\n      "),
             _c("p", { on: { click: _vm.doDelete } }, [_vm._v("削除")]),
             _vm._v(" "),
             _c("p", { on: { click: _vm.cancel } }, [_vm._v("キャンセル")])
@@ -40782,7 +40802,7 @@ var render = function() {
                       { staticClass: "arrow_btn", attrs: { to: "category" } },
                       [
                         _vm._v(
-                          "\n                                    スタート"
+                          "\n                  スタート\n                  "
                         ),
                         _c("strong", [
                           _c("i", {
@@ -40907,11 +40927,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", [
-      _vm._v("あなたがまだ見ぬ"),
+      _vm._v("\n                あなたがまだ見ぬ\n                "),
       _c("br"),
-      _vm._v("沖縄をクイズで"),
+      _vm._v("沖縄をクイズで\n                "),
       _c("br"),
-      _vm._v("体感せよ")
+      _vm._v("体感せよ\n              ")
     ])
   },
   function() {
@@ -40932,7 +40952,7 @@ var staticRenderFns = [
       _c("div", [
         _c("p", [
           _vm._v(
-            "\n                            初めましてこのサイトを制作したものです。\n                            当サイトはクイズ形式で沖縄の魅力を伝えていくために制作しました。\n                            現在、新型の感染病の影響で数々の行動が制限されているかと思います。\n                            私にはどうすることもできません。なので、この感染病を乗り越えたら、\n                            沖縄に足を運びたくなるようなサイトを作りたいと思い作らさせていただきました。\n                            皆様にお使いいただけると嬉しいです。\n                        "
+            "\n              初めましてこのサイトを制作したものです。\n              当サイトはクイズ形式で沖縄の魅力を伝えていくために制作しました。\n              現在、新型の感染病の影響で数々の行動が制限されているかと思います。\n              私にはどうすることもできません。なので、この感染病を乗り越えたら、\n              沖縄に足を運びたくなるようなサイトを作りたいと思い作らさせていただきました。\n              皆様に使っていただけると嬉しいです。\n            "
           )
         ])
       ])
@@ -40947,7 +40967,7 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", [
         _c("p", { staticClass: "info" }, [
-          _vm._v("1. 現在カテゴリー別でクイズ出題できるようになりました.")
+          _vm._v("1. カテゴリー別でクイズ出題できるようになりました.")
         ]),
         _vm._v(" "),
         _c("p", { staticClass: "info" }, [
