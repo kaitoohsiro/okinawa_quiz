@@ -2246,7 +2246,7 @@ __webpack_require__.r(__webpack_exports__);
       var categoryId = {
         id: this.$route.params.value
       };
-      axios.post('/api/quiz', categoryId).then(function (response) {
+      axios.post("/api/quiz", categoryId).then(function (response) {
         _this.quiz = response.data;
         _this.totalCount = _this.quiz.length;
 
@@ -2287,6 +2287,13 @@ __webpack_require__.r(__webpack_exports__);
         this.showExplain = false;
         this.matchanswer = false;
         this.endMsg = true;
+      }
+    },
+    tweet: function tweet() {
+      if (this.totalAnswer > 0) {
+        open("https://twitter.com/intent/tweet?text=" + this.totalAnswer + "%E5%95%8F%E6%AD%A3%E8%A7%A3%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81%0A%0A&url=https%3A%2F%2Fok-okinawa-quiz.herokuapp.com++%23%E6%B2%96%E7%B8%84+%23%E6%B2%96%E7%B8%84%E3%82%AF%E3%82%A4%E3%82%BA+%23%E3%81%AA%E3%82%93%E3%81%8F%E3%82%8B%E3%81%AA%E3%81%84%E3%81%95%E3%83%BC", "_blank");
+      } else {
+        open("https://twitter.com/intent/tweet?text=" + "%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AF%E4%BD%95%E5%95%8F%E8%A7%A3%E3%81%91%E3%82%8B%3F%0D%0A&url=https%3A%2F%2Fok-okinawa-quiz.herokuapp.com++%23%E6%B2%96%E7%B8%84+%23%E6%B2%96%E7%B8%84%E3%82%AF%E3%82%A4%E3%82%BA+%23%E3%81%AA%E3%82%93%E3%81%8F%E3%82%8B%E3%81%AA%E3%81%84%E3%81%95%E3%83%BC", "_blank");
       }
     }
   }
@@ -7779,7 +7786,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#quiz[data-v-2f5cbb36] {\n    text-align: center;\n    height: 100vh;\n}\n.heighta[data-v-2f5cbb36] {\n    height: 10vh;\n}\n.quiz_card[data-v-2f5cbb36] {\n    text-align: center;\n    margin: auto 20%;\n}\n.choice_card[data-v-2f5cbb36] {\n    padding-left: 0;\n}\n.choice_card .choice[data-v-2f5cbb36] {\n    list-style: none;\n    padding: 0.8em 0.5em;\n    cursor: pointer;\n    background-color: #eaeaea;\n    width: 100%;\n    margin: 30px auto;\n    border-radius: 8px;\n    transition: transform ease .6s;\n}\n.choice_card .choice[data-v-2f5cbb36]:active {\n    transform: translateY(5px);\n}\n/* 文字サイズ */\n.result[data-v-2f5cbb36], .fa-circle[data-v-2f5cbb36], .fa-times[data-v-2f5cbb36] {\n    font-size: 2.2rem;\n}\n/* いろ */\n.fa-circle[data-v-2f5cbb36], .correct[data-v-2f5cbb36] {\n    color: red;\n}\n.fa-times[data-v-2f5cbb36], .bad[data-v-2f5cbb36] {\n    color: blue;\n}\n/* 太さ */\n.result[data-v-2f5cbb36] {\n    font-weight: bold;\n}\n.end_card a[data-v-2f5cbb36] {\n    text-decoration: none;\n    color: #000;\n    font-weight: bold;\n}\n.box14[data-v-2f5cbb36] {\n    padding: 1.5em 0.5em;\n    margin: 2em 0;\n    color: #565656;\n    background: #ffeaea;\n    box-shadow: 0px 0px 0px 10px #ffeaea;\n    border: dashed 2px #ffc3c3;\n    border-radius: 8px;\n}\n.box14 p[data-v-2f5cbb36] {\n    font-size: 1.3rem;\n    margin: 0;\n    padding: 0;\n}\n.explain[data-v-2f5cbb36] {\n    border: 3px solid #999;\n    margin: auto 20%;\n    padding: 0.8em 0.5em;\n    border-radius: 8px;\n}\n.explain p[data-v-2f5cbb36] {\n    font-size: 1.3rem;\n}\n.explain_main[data-v-2f5cbb36] {\n    text-align: left;\n}\n.explain_title[data-v-2f5cbb36] {\n    font-weight: bold;\n    font-size: 1.3rem;\n}\n.btn[data-v-2f5cbb36] {\n    margin: 0.8em 3em;\n    border: 1px solid #fff;\n    background-color: rgba(250,207,76,.97);\n    box-shadow: 0 4px rgba(189, 156, 57, 0.97);\n    border-radius: 100px;\n    transition: transform ease .4s;\n    height: 50px;\n    cursor: pointer;\n}\n.btn[data-v-2f5cbb36]:active {\n    transform: translateY(4px);\n}\n.btn span[data-v-2f5cbb36] {\n    padding: auto;\n    color: #fff;\n    font-size: 1.5rem;\n}\n.end_card[data-v-2f5cbb36] {\n    border: 3px solid #999;\n    margin: auto 20%;\n    padding: 0.8em 0.5em;\n    border-radius: 8px;\n}\n.end_card p[data-v-2f5cbb36] {\n    font-size: 2rem;\n}\n.end_card ul[data-v-2f5cbb36] {\n    padding-left: 0;\n}\n.end[data-v-2f5cbb36] {\n    list-style: none;\n}\n.btn a[data-v-2f5cbb36] {\n    padding: auto;\n    color: #fff;\n    font-size: 1.5rem;\n}\n@media screen and (max-width: 414px) {\n.explain[data-v-2f5cbb36] {\n        margin: auto 0;\n}\n.quiz_card[data-v-2f5cbb36] {\n        margin: auto 10px;\n}\n.choice_card .choice[data-v-2f5cbb36] {\n        width: 95%;\n}\n.end[data-v-2f5cbb36] {\n        margin: auto 0;\n}\n}\n", ""]);
+exports.push([module.i, "\n#quiz[data-v-2f5cbb36] {\n  text-align: center;\n  height: 100vh;\n}\n.heighta[data-v-2f5cbb36] {\n  height: 10vh;\n}\n.quiz_card[data-v-2f5cbb36] {\n  text-align: center;\n  margin: auto 20%;\n}\n.choice_card[data-v-2f5cbb36] {\n  padding-left: 0;\n}\n.choice_card .choice[data-v-2f5cbb36] {\n  list-style: none;\n  padding: 0.8em 0.5em;\n  cursor: pointer;\n  background-color: #eaeaea;\n  width: 100%;\n  margin: 30px auto;\n  border-radius: 8px;\n  transition: transform ease 0.6s;\n}\n.choice_card .choice[data-v-2f5cbb36]:active {\n  transform: translateY(5px);\n}\n/* 文字サイズ */\n.result[data-v-2f5cbb36],\n.fa-circle[data-v-2f5cbb36],\n.fa-times[data-v-2f5cbb36] {\n  font-size: 2.2rem;\n}\n/* いろ */\n.fa-circle[data-v-2f5cbb36],\n.correct[data-v-2f5cbb36] {\n  color: red;\n}\n.fa-times[data-v-2f5cbb36],\n.bad[data-v-2f5cbb36] {\n  color: blue;\n}\n/* 太さ */\n.result[data-v-2f5cbb36] {\n  font-weight: bold;\n}\n.end_card a[data-v-2f5cbb36] {\n  text-decoration: none;\n  color: #000;\n  font-weight: bold;\n}\n.box14[data-v-2f5cbb36] {\n  padding: 1.5em 0.5em;\n  margin: 2em 0;\n  color: #565656;\n  background: #ffeaea;\n  box-shadow: 0px 0px 0px 10px #ffeaea;\n  border: dashed 2px #ffc3c3;\n  border-radius: 8px;\n}\n.box14 p[data-v-2f5cbb36] {\n  font-size: 1.3rem;\n  margin: 0;\n  padding: 0;\n}\n.explain[data-v-2f5cbb36] {\n  border: 3px solid #999;\n  margin: auto 20%;\n  padding: 0.8em 0.5em;\n  border-radius: 8px;\n}\n.explain p[data-v-2f5cbb36] {\n  font-size: 1.3rem;\n}\n.explain_main[data-v-2f5cbb36] {\n  text-align: left;\n}\n.explain_title[data-v-2f5cbb36] {\n  font-weight: bold;\n  font-size: 1.3rem;\n}\n.btn[data-v-2f5cbb36] {\n  margin: 0.8em 3em;\n  border: 1px solid #fff;\n  background-color: rgba(250, 207, 76, 0.97);\n  box-shadow: 0 4px rgba(189, 156, 57, 0.97);\n  border-radius: 100px;\n  transition: transform ease 0.4s;\n  height: 50px;\n  cursor: pointer;\n}\n.btn[data-v-2f5cbb36]:active {\n  transform: translateY(4px);\n}\n.btn span[data-v-2f5cbb36] {\n  padding: auto;\n  color: #fff;\n  font-size: 1.5rem;\n}\n.end_card[data-v-2f5cbb36] {\n  border: 3px solid #999;\n  margin: auto 20%;\n  padding: 0.8em 0.5em;\n  border-radius: 8px;\n}\n.end_card p[data-v-2f5cbb36] {\n  font-size: 2rem;\n}\n.end_card ul[data-v-2f5cbb36] {\n  padding-left: 0;\n}\n.end[data-v-2f5cbb36] {\n  list-style: none;\n}\n.btn a[data-v-2f5cbb36] {\n  padding: auto;\n  color: #fff;\n  font-size: 1.5rem;\n}\n@media screen and (max-width: 414px) {\n.explain[data-v-2f5cbb36] {\n    margin: auto 0;\n}\n.quiz_card[data-v-2f5cbb36] {\n    margin: auto 10px;\n}\n.choice_card .choice[data-v-2f5cbb36] {\n    width: 95%;\n}\n.end[data-v-2f5cbb36] {\n    margin: auto 0;\n}\n}\n", ""]);
 
 // exports
 
@@ -40551,11 +40558,10 @@ var render = function() {
                 _c("p", [
                   _c("span", [
                     _vm._v(
-                      "\n                                QUESTION " +
+                      "QUESTION " +
                         _vm._s(_vm.questionCount) +
                         ". " +
-                        _vm._s(_vm.quiz[_vm.questionCount - 1].question) +
-                        "\n                            "
+                        _vm._s(_vm.quiz[_vm.questionCount - 1].question)
                     )
                   ])
                 ])
@@ -40580,13 +40586,7 @@ var render = function() {
                       }
                     }
                   },
-                  [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(choice) +
-                        "\n                    "
-                    )
-                  ]
+                  [_vm._v(_vm._s(choice))]
                 )
               }),
               0
@@ -40600,13 +40600,15 @@ var render = function() {
           _vm.matchAnswer
             ? _c("span", [
                 _c("i", { staticClass: "far fa-circle" }),
+                _vm._v(" "),
                 _c("span", { staticClass: "result correct" }, [
-                  _vm._v("  正解！")
+                  _vm._v("正解！")
                 ])
               ])
             : _c("span", [
                 _c("i", { staticClass: "fas fa-times" }),
-                _c("span", { staticClass: "result bad" }, [_vm._v(" 不正解")])
+                _vm._v(" "),
+                _c("span", { staticClass: "result bad" }, [_vm._v("不正解")])
               ]),
           _vm._v(" "),
           _c("br"),
@@ -40614,9 +40616,9 @@ var render = function() {
           _c("p", { staticClass: "explain_main" }, [
             _c("span", { staticClass: "explain_title" }, [_vm._v("解説")]),
             _vm._v(
-              " : " +
+              "\n      : " +
                 _vm._s(_vm.quiz[_vm.questionCount - 1].explain_sentence) +
-                "\n            "
+                "\n    "
             )
           ]),
           _vm._v(" "),
@@ -40637,19 +40639,19 @@ var render = function() {
               _c(
                 "li",
                 { staticClass: "btn end" },
-                [
-                  _c("RouterLink", { attrs: { to: "/" } }, [
-                    _vm._v(
-                      "\n                            TOPへ\n                        "
-                    )
-                  ])
-                ],
+                [_c("RouterLink", { attrs: { to: "/" } }, [_vm._v("TOPへ")])],
                 1
               ),
               _vm._v(" "),
               _c("br"),
               _vm._v(" "),
-              _vm._m(0)
+              _c("li", { staticClass: "btn end", on: { click: _vm.tweet } }, [
+                _vm._m(0)
+              ]),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _vm._m(1)
             ])
           ])
         ])
@@ -40661,12 +40663,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("i", { staticClass: "fab fa-twitter" }),
+      _vm._v("ツイート\n          ")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("li", { staticClass: "btn end" }, [
-      _c("a", { attrs: { href: "/category" } }, [
-        _vm._v(
-          "\n                            リトライ\n                        "
-        )
-      ])
+      _c("a", { attrs: { href: "/category" } }, [_vm._v("リトライ")])
     ])
   }
 ]
