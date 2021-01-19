@@ -7,33 +7,42 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+# 沖縄クイズ(web アプリケーション)
 
-
-
-# 沖縄クイズ(webアプリケーション)
 ## URL
-[沖縄クイズ](https://ok-okinawa-quiz.herokuapp.com/)
-# 言語
-- php
-- javascript
-# フレームワーク
-- laravel
-- vue.js
-# 機能
-## ユーザー
-- クイズに答える
-## 管理者
-- クイズ作成
-- クイズ編集
-- クイズ削除
-- クイズ一覧表示
-- ログイン
-- ログアウト
-## サーバー
-- heroku
-## DB
-- herokuのDB
-- pgSQL
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+[沖縄クイズ](https://ok-okinawa-quiz.herokuapp.com/)
+
+# 言語
+
+-   php: 7.4.13
+-   javascript
+
+# フレームワーク
+
+-   laravel: 7.30.2
+-   vue.js (@vue/cli: 4.5.9)
+
+# 機能
+
+## ユーザー
+
+-   クイズに答える
+
+## 管理者
+
+-   クイズ作成
+-   クイズ編集
+-   クイズ削除
+-   クイズ一覧表示
+-   ログイン
+-   ログアウト
+
+## サーバー
+
+-   heroku
+
+## DB
+
+-   heroku の DB
+-   pgSQL
