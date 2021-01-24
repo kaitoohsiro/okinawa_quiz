@@ -13,7 +13,9 @@
         </div>
       </div>
       <!--選択肢-->
+
       <div v-if="showQuestion">
+          <p><img v-if="image" class="img" :src="quiz[questionCount - 1].image_name"></p>
         <ul class="choice_card">
           <li class="choice" v-for="choice in choices" @click="checkAnswer(choice)">{{ choice }}</li>
         </ul>
@@ -73,6 +75,7 @@ export default {
       totalCount: 0,
       questionCount: 1,
       choices: [],
+        image: false,
       showQuestion: true,
       showExplain: false,
       matchAnswer: false,
@@ -90,9 +93,17 @@ export default {
       axios.post("/api/quiz", categoryId).then(response => {
         this.quiz = response.data;
         this.totalCount = this.quiz.length;
+          this.imageDisplay(this.questionCount - 1);
         this.showAnswer(this.questionCount - 1);
       });
     },
+      imageDisplay: function(index) {
+        if (this.quiz[index].image_name) {
+            this.image = true;
+        } else {
+            this.image = false;
+        }
+      },
     showAnswer: function(index) {
       this.choices.push(
         this.quiz[index].correct,
@@ -128,6 +139,11 @@ export default {
           this.choices[i] = this.choices[r];
           this.choices[r] = tmp;
         }
+          if (this.quiz[this.questionCount - 1].image_name) {
+              this.image = true;
+          } else {
+              this.image = false;
+          }
       } else {
         this.showQuestion = false;
         this.showExplain = false;
@@ -170,6 +186,10 @@ export default {
 }
 .choice_card {
   padding-left: 0;
+}
+.img {
+    width: 70%;
+    height: 50%;
 }
 .choice_card .choice {
   list-style: none;
