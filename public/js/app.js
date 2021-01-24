@@ -2308,6 +2308,12 @@ __webpack_require__.r(__webpack_exports__);
         this.endMsg = true;
       }
     },
+    top: function top() {
+      window.location.href = "/";
+    },
+    retry: function retry() {
+      window.location.href = "/category";
+    },
     tweet: function tweet() {
       if (this.totalAnswer > 0) {
         open("https://twitter.com/intent/tweet?text=" + this.totalAnswer + "%E5%95%8F%E6%AD%A3%E8%A7%A3%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%81%0A%0A&url=https%3A%2F%2Fok-okinawa-quiz.herokuapp.com++%23%E6%B2%96%E7%B8%84+%23%E6%B2%96%E7%B8%84%E3%82%AF%E3%82%A4%E3%82%BA+%23%E3%81%AA%E3%82%93%E3%81%8F%E3%82%8B%E3%81%AA%E3%81%84%E3%81%95%E3%83%BC", "_blank");
@@ -40746,12 +40752,9 @@ var render = function() {
             _c("p", [_vm._v(_vm._s(_vm.totalAnswer) + " 問正解")]),
             _vm._v(" "),
             _c("ul", [
-              _c(
-                "li",
-                { staticClass: "btn end" },
-                [_c("RouterLink", { attrs: { to: "/" } }, [_vm._v("TOPへ")])],
-                1
-              ),
+              _c("li", { staticClass: "btn end", on: { click: _vm.top } }, [
+                _c("a", { attrs: { href: "#" } }, [_vm._v("TOPへ")])
+              ]),
               _vm._v(" "),
               _c("br"),
               _vm._v(" "),
@@ -40761,7 +40764,9 @@ var render = function() {
               _vm._v(" "),
               _c("br"),
               _vm._v(" "),
-              _vm._m(1)
+              _c("li", { staticClass: "btn end", on: { click: _vm.retry } }, [
+                _c("a", { attrs: { href: "#" } }, [_vm._v("リトライ")])
+              ])
             ])
           ])
         ])
@@ -40776,14 +40781,6 @@ var staticRenderFns = [
     return _c("a", { attrs: { href: "#" } }, [
       _c("i", { staticClass: "fab fa-twitter" }),
       _vm._v("ツイート\n          ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "btn end" }, [
-      _c("a", { attrs: { href: "/category" } }, [_vm._v("リトライ")])
     ])
   }
 ]
