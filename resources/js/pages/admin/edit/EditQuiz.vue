@@ -38,65 +38,63 @@
 
 
 <script>
-
-export default {
-    data: function() {
-        return {
-            category: null,
-            orderData: null,
-            selectCategory: '',
-            editData: {
-                id: null,
-                question: null,
-                correct: null,
-                choice1: null,
-                choice2: null,
-                explain_sentence: null,
-                image_name: null,
-                category_id: null
-            }
-            // choice1:
-        }
-    },
-    created() {
-        this.getCategory();
-        this.getDataQuiz();
-    },
-    methods: {
-        getCategory: function () {
-            axios
-                .get('/api/admin/quiz/create')
-                .then(response => {
-                    this.category = response.data;
-                    this.categoryCount = this.category.length;
-                });
-        },
-        getDataQuiz: function() {
-            this.orderData = this.$router.currentRoute.params.list;
-            this.editData = {
-                id: this.orderData.id,
-                question: this.orderData.question,
-                correct: this.orderData.correct,
-                choice1: this.orderData.choice1,
-                choice2: this.orderData.choice2,
-                explain_sentence: this.orderData.explain_sentence,
-                image_name: this.orderData.image_name,
-                category_id: this.orderData.category_id
-            };
-        },
-        checkCategory: function() {
-            for (let i = 0; i < this.categoryCount; i++) {
-                if (this.category[i].category === this.selectCategory) {
-                    this.editData.category_id = this.category[i].id;
+    export default {
+        data: function() {
+            return {
+                category: null,
+                orderData: null,
+                selectCategory: '',
+                editData: {
+                    id: null,
+                    question: null,
+                    correct: null,
+                    choice1: null,
+                    choice2: null,
+                    explain_sentence: null,
+                    image_name: null,
+                    category_id: null
                 }
+                // choice1:
             }
         },
-        onSubmit: function () {
-            axios.post('/api/admin/quiz/edit', this.editData)
-        }
-    },
-
-}
+        created() {
+            this.getCategory();
+            this.getDataQuiz();
+        },
+        methods: {
+            getCategory: function () {
+                axios
+                    .get('/api/admin/quiz/create')
+                    .then(response => {
+                        this.category = response.data;
+                        this.categoryCount = this.category.length;
+                    });
+            },
+            getDataQuiz: function() {
+                this.orderData = this.$router.currentRoute.params.list;
+                this.editData = {
+                    id: this.orderData.id,
+                    question: this.orderData.question,
+                    correct: this.orderData.correct,
+                    choice1: this.orderData.choice1,
+                    choice2: this.orderData.choice2,
+                    explain_sentence: this.orderData.explain_sentence,
+                    image_name: this.orderData.image_name,
+                    category_id: this.orderData.category_id
+                };
+            },
+            checkCategory: function() {
+                for (let i = 0; i < this.categoryCount; i++) {
+                    if (this.category[i].category === this.selectCategory) {
+                        this.editData.category_id = this.category[i].id;
+                    }
+                }
+            },
+            onSubmit: function () {
+                axios.post('/api/admin/quiz/edit', this.editData)
+            }
+        },
+    }
 </script>
 
 <style scoped>

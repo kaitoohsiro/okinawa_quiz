@@ -1,28 +1,29 @@
 <template>
-  <div class="quiz_admin">
-    <h1>Quiz List</h1>
-    <div>
-      <span>
-        <router-link to="admin/create">新規作成</router-link>
-        <!-- <router-link to="admin/create/category">カテゴリ作成</router-link> -->
-      </span>
+    <div class="quiz_admin">
+        <h1>Quiz List</h1>
+        <div>
+            <span>
+                <router-link to="admin/create">新規作成</router-link>
+                <!-- <router-link to="admin/create/category">カテゴリ作成</router-link> -->
+            </span>
+        </div>
+        <div class="card">
+            <ul>
+                <li v-for="item in quiz">
+                    <span>{{ item.question }}</span>
+                    <span><img class="img" :src="`${item.image_name}`" /></span>
+                    <span>{{ item.category_id }}</span>
+                    <RouterLink :to="{name: 'quiz_edit', params: {list: item}}">編集</RouterLink>
+                    <span @click="deleteCheck(item.id)">削除</span>
+                </li>
+            </ul>
+            <div class="delete" v-if="deleteDisplay">
+                {{ quizId }}
+                <p @click="doDelete">削除</p>
+                <p @click="cancel">キャンセル</p>
+            </div>
+        </div>
     </div>
-    <div class="card">
-      <ul>
-        <li v-for="item in quiz">
-          <span>{{ item.question }}</span>
-          <span>{{ item.category_id }}</span>
-          <RouterLink :to="{name: 'quiz_edit', params: {list: item}}">編集</RouterLink>
-          <span @click="deleteCheck(item.id)">削除</span>
-        </li>
-      </ul>
-      <div class="delete" v-if="deleteDisplay">
-        {{ quizId }}
-        <p @click="doDelete">削除</p>
-        <p @click="cancel">キャンセル</p>
-      </div>
-    </div>
-  </div>
 </template>
 
 
@@ -61,3 +62,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+    .img {
+        width:300px;
+    }
+</style>

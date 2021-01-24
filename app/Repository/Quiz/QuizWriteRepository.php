@@ -3,6 +3,7 @@
 namespace App\Repository\Quiz;
 
 use App\model\Question;
+use Storage;
 
 class QuizWriteRepository
 {
@@ -32,13 +33,21 @@ class QuizWriteRepository
      */
     public function createQuiz($inputData)
     {
+        $imageUrl = null;
+
+        if (request()->file) {
+            $image = $inputData->file('file');
+            $path = Storage::disk('s3')->putFile('okinawa', $image, 'public');
+            $imageUrl = Storage::disk('s3')->url($path);
+        }
+
         $this->model::insert([
             'question' => $inputData['quiz'],
             'correct' => $inputData['answer'],
             'choice1' => $inputData['choice1'],
             'choice2' => $inputData['choice2'],
             'explain_sentence' => $inputData['explainSentence'],
-            'image_name' => $inputData['imageName'],
+            'image_name' => $imageUrl,
             'category_id' => $inputData['categoryId']
         ]);
     }
