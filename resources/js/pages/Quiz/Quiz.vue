@@ -46,8 +46,8 @@
         <p>結果</p>
         <p>{{ totalAnswer }} 問正解</p>
         <ul>
-          <li class="btn end">
-            <RouterLink to="/">TOPへ</RouterLink>
+          <li class="btn end" @click="top">
+            <a href="#">TOPへ</a>
           </li>
           <br />
           <li class="btn end" @click="tweet">
@@ -56,8 +56,8 @@
             </a>
           </li>
           <br />
-          <li class="btn end">
-            <a href="/category">リトライ</a>
+          <li class="btn end" @click="retry">
+            <a href="#">リトライ</a>
           </li>
         </ul>
         <!--                <p>Twitterで共有</p>-->
@@ -151,6 +151,12 @@ export default {
         this.endMsg = true;
       }
     },
+      top: function() {
+          window.location.href = "/";
+      },
+      retry: function() {
+          window.location.href = "/category";
+      },
     tweet: function() {
       if (this.totalAnswer > 0) {
         open(
@@ -166,7 +172,8 @@ export default {
           "_blank"
         );
       }
-    }
+    },
+
   }
 };
 </script>
