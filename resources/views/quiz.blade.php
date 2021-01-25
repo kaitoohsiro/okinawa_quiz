@@ -15,8 +15,8 @@
 
     <meta property="og:description" content="沖縄県出身の奴が沖縄の魅力を伝えるために沖縄クイズを作りました。" />
 
-    <meta property="og:image" content="https://pbs.twimg.com/media/EnCu_-mUUAAdvwD.jpg" />
-    <meta property="twitter:image" content="https://pbs.twimg.com/media/EnCu_-mUUAAdvwD.jpg" />
+    <meta property="og:image" content="https://myawsspbucket.s3-ap-northeast-1.amazonaws.com/okinawa/oCMHvacMpiw3oNr34REef79dBtVNUvD1mkQa5A2U.jpg" />
+    <meta property="twitter:image" content="https://myawsspbucket.s3-ap-northeast-1.amazonaws.com/okinawa/oCMHvacMpiw3oNr34REef79dBtVNUvD1mkQa5A2U.jpg" />
 
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ config('app.name') }}</title>
