@@ -2093,6 +2093,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2864,8 +2873,6 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-//
-//
 //
 //
 //
@@ -7837,7 +7844,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.img[data-v-04b4d2c2] {\n    width:300px;\n}\n", ""]);
+exports.push([module.i, "\n.img[data-v-04b4d2c2] {\n    width:300px;\n}\n.display[data-v-04b4d2c2] {\n  display: flex;\n  height: 100vh;\n}\n.sideBar[data-v-04b4d2c2] {\n  width: 10%;\n  padding: 10px 50px;\n  background-color: rgba(0, 0, 0, 0.7);\n  text-align: center;\n}\n.menu[data-v-04b4d2c2] {\n  font-size: 30px;\n  color: rgb(157, 146, 253);\n  margin-bottom: 90px;\n}\n.btn[data-v-04b4d2c2] {\n  padding: 10px;\n  border-radius: 10px;\n}\n.btn[data-v-04b4d2c2]:hover {\n  background-color: rgba(182, 59, 59, 0.7)\n}\n.new[data-v-04b4d2c2] {\n  color: #fff;\n  text-decoration: none;\n}\n.delete[data-v-04b4d2c2] {\n  color:rgb(180, 197, 82);\n  cursor: pointer;\n}\n.adminMain[data-v-04b4d2c2] {\n  padding: 30px 20px;\n  flex: 1;\n  overflow-y: scroll;\n}\n.tableHeader[data-v-04b4d2c2] {\n  background-color: rgb(117, 243, 252);\n}\nth[data-v-04b4d2c2],td[data-v-04b4d2c2] {\n  border: solid 1px;  /* 枠線指定 */\n  padding: 10px;      /* 余白指定 */\n}\ntable[data-v-04b4d2c2] {\n  border-collapse:  collapse; /* セルの線を重ねる */\n}\n", ""]);
 
 // exports
 
@@ -40563,72 +40570,95 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "quiz_admin" }, [
-    _c("h1", [_vm._v("Quiz List")]),
-    _vm._v(" "),
-    _c("div", [
-      _c(
-        "span",
-        [
-          _c("router-link", { attrs: { to: "admin/create" } }, [
-            _vm._v("新規作成")
-          ])
-        ],
-        1
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "card" }, [
-      _c(
-        "ul",
-        _vm._l(_vm.quiz, function(item) {
-          return _c(
-            "li",
-            [
-              _c("span", [_vm._v(_vm._s(item.question))]),
+    _c("div", { staticClass: "display" }, [
+      _c("div", { staticClass: "sideBar" }, [
+        _c("h2", { staticClass: "menu" }, [_vm._v("Menu")]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "btn" },
+          [
+            _c(
+              "router-link",
+              { staticClass: "new", attrs: { to: "admin/create" } },
+              [_vm._v("新規作成")]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _vm.deleteDisplay
+          ? _c("div", { staticClass: "delete" }, [
+              _vm._v("\n          " + _vm._s(_vm.quizId) + "\n          "),
+              _c("p", { on: { click: _vm.doDelete } }, [_vm._v("削除")]),
               _vm._v(" "),
-              _c("span", [
-                _c("img", {
-                  staticClass: "img",
-                  attrs: { src: "" + item.image_name }
-                })
-              ]),
-              _vm._v(" "),
-              _c("span", [_vm._v(_vm._s(item.category_id))]),
-              _vm._v(" "),
-              _c(
-                "RouterLink",
-                {
-                  attrs: { to: { name: "quiz_edit", params: { list: item } } }
-                },
-                [_vm._v("編集")]
-              ),
-              _vm._v(" "),
-              _c(
-                "span",
-                {
-                  on: {
-                    click: function($event) {
-                      return _vm.deleteCheck(item.id)
-                    }
-                  }
-                },
-                [_vm._v("削除")]
-              )
-            ],
-            1
-          )
-        }),
-        0
-      ),
+              _c("p", { on: { click: _vm.cancel } }, [_vm._v("キャンセル")])
+            ])
+          : _vm._e()
+      ]),
       _vm._v(" "),
-      _vm.deleteDisplay
-        ? _c("div", { staticClass: "delete" }, [
-            _vm._v("\n            " + _vm._s(_vm.quizId) + "\n            "),
-            _c("p", { on: { click: _vm.doDelete } }, [_vm._v("削除")]),
-            _vm._v(" "),
-            _c("p", { on: { click: _vm.cancel } }, [_vm._v("キャンセル")])
-          ])
-        : _vm._e()
+      _c("div", { staticClass: "adminMain" }, [
+        _c("h1", [_vm._v("沖縄クイズ管理者画面")]),
+        _vm._v(" "),
+        _c("h2", [_vm._v("Quiz List")]),
+        _vm._v(" "),
+        _c("table", [
+          _c("th", { staticClass: "tableHeader" }, [_vm._v("問題")]),
+          _vm._v(" "),
+          _c("th", { staticClass: "tableHeader" }, [_vm._v("画像")]),
+          _vm._v(" "),
+          _c("th", { staticClass: "tableHeader" }, [_vm._v("カテゴリーID")]),
+          _vm._v(" "),
+          _c("th", { staticClass: "tableHeader" }, [_vm._v("操作")]),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.quiz, function(item) {
+              return _c("tr", [
+                _c("th", [_vm._v(_vm._s(item.question))]),
+                _vm._v(" "),
+                _c("td", [
+                  _c("img", {
+                    staticClass: "img",
+                    attrs: { src: "" + item.image_name }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("td", [_vm._v(_vm._s(item.category_id))]),
+                _vm._v(" "),
+                _c(
+                  "td",
+                  [
+                    _c(
+                      "RouterLink",
+                      {
+                        attrs: {
+                          to: { name: "quiz_edit", params: { list: item } }
+                        }
+                      },
+                      [_vm._v("編集")]
+                    ),
+                    _vm._v(" / "),
+                    _c(
+                      "span",
+                      {
+                        on: {
+                          click: function($event) {
+                            return _vm.deleteCheck(item.id)
+                          }
+                        }
+                      },
+                      [_vm._v("削除")]
+                    )
+                  ],
+                  1
+                )
+              ])
+            }),
+            0
+          )
+        ])
+      ])
     ])
   ])
 }
@@ -41120,16 +41150,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { attrs: { id: "create" } },
-    [
-      _c("h1", [_vm._v("沖縄クイズ管理者画面")]),
-      _vm._v(" "),
-      _c("router-view")
-    ],
-    1
-  )
+  return _c("div", { attrs: { id: "create" } }, [_c("router-view")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true

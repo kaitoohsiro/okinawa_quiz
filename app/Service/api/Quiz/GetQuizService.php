@@ -25,7 +25,7 @@ class GetQuizService
      * 管理者用クイズ取得
      * @return mixed
      */
-    public function adminExecute ()
+    public function adminExecute()
     {
         return $this->quizReadRepository->getQuizAdmin();
     }
@@ -34,7 +34,7 @@ class GetQuizService
      * ユーザ用クイズ取得
      * @return mixed
      */
-    public function execute ($categoryId)
+    public function execute($categoryId)
     {
         return $this->quizReadRepository->getQuiz($categoryId);
     }

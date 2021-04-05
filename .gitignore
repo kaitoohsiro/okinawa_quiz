@@ -1,4 +1,5 @@
 /node_modules
+/aws-s3
 /public/hot
 /public/storage
 /storage/*.key

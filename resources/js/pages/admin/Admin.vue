@@ -1,9 +1,7 @@
 <template>
     <div id="create">
-        <h1>沖縄クイズ管理者画面</h1>
-
 <!--        <transition name="animation" mode="out-in">-->
-            <router-view />
+        <router-view />
 <!--        </transition>-->
     </div>
 </template>

@@ -1,29 +1,38 @@
 <template>
     <div class="quiz_admin">
-        <h1>Quiz List</h1>
-        <div>
-            <span>
-                <router-link to="admin/create">新規作成</router-link>
-                <!-- <router-link to="admin/create/category">カテゴリ作成</router-link> -->
-            </span>
+      <div class="display">
+        <div class="sideBar">
+          <h2 class="menu">Menu</h2>
+          <div class="btn">
+              <router-link class="new" to="admin/create">新規作成</router-link>
+              <!-- <router-link to="admin/create/category">カテゴリ作成</router-link> -->
+          </div>
+          <div class="delete" v-if="deleteDisplay">
+            {{ quizId }}
+            <p @click="doDelete">削除</p>
+            <p @click="cancel">キャンセル</p>
+          </div>
         </div>
-        <div class="card">
-            <ul>
-                <li v-for="item in quiz">
-                    <span>{{ item.question }}</span>
-                    <span><img class="img" :src="`${item.image_name}`" /></span>
-                    <span>{{ item.category_id }}</span>
-                    <RouterLink :to="{name: 'quiz_edit', params: {list: item}}">編集</RouterLink>
-                    <span @click="deleteCheck(item.id)">削除</span>
-                </li>
-            </ul>
-            <div class="delete" v-if="deleteDisplay">
-                {{ quizId }}
-                <p @click="doDelete">削除</p>
-                <p @click="cancel">キャンセル</p>
-            </div>
+        <div class="adminMain">
+          <h1>沖縄クイズ管理者画面</h1>
+          <h2>Quiz List</h2>
+          <table>
+            <th class="tableHeader">問題</th>
+            <th class="tableHeader">画像</th>
+            <th class="tableHeader">カテゴリーID</th>
+            <th class="tableHeader">操作</th>
+            <tbody>
+              <tr v-for="item in quiz">
+                <th>{{ item.question }}</th>
+                <td><img class="img" :src="`${item.image_name}`" /></td>
+                <td>{{ item.category_id }}</td>
+                <td><RouterLink :to="{name: 'quiz_edit', params: {list: item}}">編集</RouterLink> / <span @click="deleteCheck(item.id)">削除</span></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-    </div>
+      </div>
+  </div>
 </template>
 
 
@@ -66,5 +75,50 @@ export default {
 <style scoped>
     .img {
         width:300px;
+    }
+    .display {
+      display: flex;
+      height: 100vh;
+    }
+    .sideBar {
+      width: 10%;
+      padding: 10px 50px;
+      background-color: rgba(0, 0, 0, 0.7);
+      text-align: center;
+    }
+    .menu {
+      font-size: 30px;
+      color: rgb(157, 146, 253);
+      margin-bottom: 90px;
+    }
+    .btn {
+      padding: 10px;
+      border-radius: 10px;
+    }
+    .btn:hover {
+      background-color: rgba(182, 59, 59, 0.7)
+    }
+    .new {
+      color: #fff;
+      text-decoration: none;
+    }
+    .delete {
+      color:rgb(180, 197, 82);
+      cursor: pointer;
+    }
+    .adminMain {
+      padding: 30px 20px;
+      flex: 1;
+      overflow-y: scroll;
+    }
+    .tableHeader {
+      background-color: rgb(117, 243, 252);
+    }
+    th,td {
+      border: solid 1px;  /* 枠線指定 */
+      padding: 10px;      /* 余白指定 */
+    }
+    table {
+      border-collapse:  collapse; /* セルの線を重ねる */
     }
 </style>
