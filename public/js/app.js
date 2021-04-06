@@ -2092,6 +2092,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2101,7 +2104,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       quiz: null,
       quizId: null,
-      deleteDisplay: false
+      deleteDisplay: false,
+      quizCount: 0
     };
   },
   created: function created() {
@@ -2112,7 +2116,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       axios.get("/api/admin/quiz").then(function (response) {
-        return _this.quiz = response.data;
+        return _this.quiz = response.data, _this.quizCount = response.data.length;
       });
     },
     deleteCheck: function deleteCheck(quizId) {
@@ -7875,7 +7879,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.img[data-v-04b4d2c2] {\n    width:300px;\n}\n.display[data-v-04b4d2c2] {\n  display: flex;\n  height: 100vh;\n}\n.adminMain[data-v-04b4d2c2] {\n  padding: 30px 20px;\n  flex: 1;\n  overflow-y: scroll;\n}\n.tableHeader[data-v-04b4d2c2] {\n  background-color: rgb(117, 243, 252);\n}\nth[data-v-04b4d2c2],td[data-v-04b4d2c2] {\n  border: solid 1px;  /* 枠線指定 */\n  padding: 10px;      /* 余白指定 */\n}\ntable[data-v-04b4d2c2] {\n  border-collapse:  collapse; /* セルの線を重ねる */\n}\n", ""]);
+exports.push([module.i, "\n.img[data-v-04b4d2c2] {\n    width:300px;\n}\n.display[data-v-04b4d2c2] {\n  display: flex;\n  height: 100vh;\n}\n.adminMain[data-v-04b4d2c2] {\n  padding: 10px 0px 30px 30px;\n  flex: 1;\n  overflow-y: scroll;\n}\n.text[data-v-04b4d2c2] {\n  text-align: right;\n  width: 90%;\n}\n.tableHeader[data-v-04b4d2c2] {\n  background-color: rgb(117, 243, 252);\n}\nth[data-v-04b4d2c2],td[data-v-04b4d2c2] {\n  border: solid 1px;  /* 枠線指定 */\n  padding: 10px;      /* 余白指定 */\n}\ntable[data-v-04b4d2c2] {\n  border-collapse:  collapse; /* セルの線を重ねる */\n}\n", ""]);
 
 // exports
 
@@ -40660,6 +40664,10 @@ var render = function() {
           _c("h1", [_vm._v("沖縄クイズ管理者画面")]),
           _vm._v(" "),
           _c("h2", [_vm._v("Quiz List")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "text" }, [
+            _c("p", [_vm._v("問題数:" + _vm._s(_vm.quizCount))])
+          ]),
           _vm._v(" "),
           _c("table", [
             _c("th", { staticClass: "tableHeader" }, [_vm._v("問題")]),

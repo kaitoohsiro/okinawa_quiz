@@ -5,6 +5,9 @@
         <div class="adminMain">
           <h1>沖縄クイズ管理者画面</h1>
           <h2>Quiz List</h2>
+          <div class="text">
+            <p>問題数:{{ quizCount }}</p>
+          </div>
           <table>
             <th class="tableHeader">問題</th>
             <th class="tableHeader">画像</th>
@@ -35,7 +38,8 @@ export default {
     return {
       quiz: null,
       quizId: null,
-      deleteDisplay: false
+      deleteDisplay: false,
+      quizCount: 0,
     };
   },
   created() {
@@ -45,7 +49,12 @@ export default {
     getQuizList: function() {
       axios
         .get("/api/admin/quiz")
-        .then(response => (this.quiz = response.data));
+        .then(
+          response => (
+            this.quiz = response.data,
+            this.quizCount = response.data.length
+          )
+        );
     },
     deleteCheck: function(quizId) {
       this.quizId = quizId;
@@ -74,9 +83,13 @@ export default {
       height: 100vh;
     }
     .adminMain {
-      padding: 30px 20px;
+      padding: 10px 0px 30px 30px;
       flex: 1;
       overflow-y: scroll;
+    }
+    .text {
+      text-align: right;
+      width: 90%;
     }
     .tableHeader {
       background-color: rgb(117, 243, 252);
