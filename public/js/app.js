@@ -2095,6 +2095,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -7879,7 +7886,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.img[data-v-04b4d2c2] {\n    width:300px;\n}\n.display[data-v-04b4d2c2] {\n  display: flex;\n  height: 100vh;\n}\n.adminMain[data-v-04b4d2c2] {\n  padding: 10px 10px 30px 30px;\n  flex: 1;\n  overflow-y: scroll;\n}\n.text[data-v-04b4d2c2] {\n  text-align: right;\n  width: 98%;\n}\n.tableHeader[data-v-04b4d2c2] {\n  background-color: rgb(117, 243, 252);\n}\nth[data-v-04b4d2c2],td[data-v-04b4d2c2] {\n  border: solid 1px;  /* 枠線指定 */\n  padding: 10px;      /* 余白指定 */\n}\ntable[data-v-04b4d2c2] {\n  border-collapse:  collapse; /* セルの線を重ねる */\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(1) {\n  width: 25%;\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(2) {\n  width: 20%;\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(3),\n.tableHeader[data-v-04b4d2c2]:nth-child(4) {\n  width: 10%;\n}\n", ""]);
+exports.push([module.i, "\n.img[data-v-04b4d2c2] {\n    width:300px;\n}\n.display[data-v-04b4d2c2] {\n  display: flex;\n  height: 100vh;\n}\n.adminMain[data-v-04b4d2c2] {\n  padding: 10px 10px 30px 30px;\n  flex: 1;\n  overflow-y: scroll;\n}\n.text[data-v-04b4d2c2] {\n  text-align: right;\n  width: 98%;\n}\n.tableHeader[data-v-04b4d2c2] {\n  background-color: rgb(117, 243, 252);\n}\nth[data-v-04b4d2c2],td[data-v-04b4d2c2] {\n  border: solid 1px;  /* 枠線指定 */\n  padding: 10px;      /* 余白指定 */\n}\ntable[data-v-04b4d2c2] {\n  border-collapse:  collapse; /* セルの線を重ねる */\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(1) {\n  width: 25%;\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(2) {\n  width: 20%;\n}\n.img[data-v-04b4d2c2] {\n  text-align: center;\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(3),\n.tableHeader[data-v-04b4d2c2]:nth-child(4) {\n  width: 10%;\n}\n#delete[data-v-04b4d2c2]{\n  /*　要素を重ねた時の順番　*/\n  z-index:1;\n\n  /*　画面全体を覆う設定　*/\n  position:fixed;\n  top:0;\n  left:0;\n  width:100%;\n  height:100%;\n  background-color:rgba(0,0,0,0.5);\n\n  /*　画面の中央に要素を表示させる設定　*/\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n#content[data-v-04b4d2c2]{\n  z-index:2;\n  width:50%;\n  padding: 1em;\n  background:#fff;\n}\n", ""]);
 
 // exports
 
@@ -40669,6 +40676,19 @@ var render = function() {
             _c("p", [_vm._v("問題数:" + _vm._s(_vm.quizCount))])
           ]),
           _vm._v(" "),
+          _vm.deleteDisplay
+            ? _c("div", { attrs: { id: "delete" } }, [
+                _c("div", { attrs: { id: "content" } }, [
+                  _vm._v(
+                    "\n            " + _vm._s(_vm.quizId) + "\n            "
+                  ),
+                  _c("p", { on: { click: _vm.doDelete } }, [_vm._v("削除")]),
+                  _vm._v(" "),
+                  _c("p", { on: { click: _vm.cancel } }, [_vm._v("キャンセル")])
+                ])
+              ])
+            : _vm._e(),
+          _vm._v(" "),
           _c("table", [
             _c("th", { staticClass: "tableHeader" }, [_vm._v("問題")]),
             _vm._v(" "),
@@ -40684,7 +40704,7 @@ var render = function() {
                 return _c("tr", [
                   _c("th", [_vm._v(_vm._s(item.question))]),
                   _vm._v(" "),
-                  _c("td", [
+                  _c("td", { staticClass: "img" }, [
                     _c("img", {
                       staticClass: "img",
                       attrs: { src: "" + item.image_name }

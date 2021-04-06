@@ -8,6 +8,13 @@
           <div class="text">
             <p>問題数:{{ quizCount }}</p>
           </div>
+          <div id="delete" v-if="deleteDisplay">
+            <div id="content">
+              {{ quizId }}
+              <p @click="doDelete">削除</p>
+              <p @click="cancel">キャンセル</p>
+            </div>
+          </div>
           <table>
             <th class="tableHeader">問題</th>
             <th class="tableHeader">画像</th>
@@ -16,7 +23,7 @@
             <tbody>
               <tr v-for="item in quiz">
                 <th>{{ item.question }}</th>
-                <td><img class="img" :src="`${item.image_name}`" /></td>
+                <td class="img"><img class="img" :src="`${item.image_name}`" /></td>
                 <td>{{ item.category_id }}</td>
                 <td><RouterLink :to="{name: 'quiz_edit', params: {list: item}}">編集</RouterLink> / <span @click="deleteCheck(item.id)">削除</span></td>
               </tr>
@@ -107,8 +114,35 @@ export default {
     .tableHeader:nth-child(2) {
       width: 20%;
     }
+    .img {
+      text-align: center;
+    }
     .tableHeader:nth-child(3),
     .tableHeader:nth-child(4) {
       width: 10%;
+    }
+    #delete{
+      /*　要素を重ねた時の順番　*/
+      z-index:1;
+
+      /*　画面全体を覆う設定　*/
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background-color:rgba(0,0,0,0.5);
+
+      /*　画面の中央に要素を表示させる設定　*/
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+    #content{
+      z-index:2;
+      width:50%;
+      padding: 1em;
+      background:#fff;
     }
 </style>
