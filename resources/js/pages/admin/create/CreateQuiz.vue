@@ -3,32 +3,38 @@
     <sideBar />
     <div class="createMain">
       <h1>Quiz</h1>
-      <form>
+      <form class="newForm">
         <label>
-          問題文を入力
+          <span class="text">問題文を入力</span>
           <textarea v-model="quiz" placeholder="問題を入力"></textarea>
         </label>
         <label>
+          <span class="text">カテゴリー：</span>
           <select v-model="selectCategory " @change="checkCategory">
             <option v-for="categoryName in category">{{ categoryName.category }}</option>
           </select>
         </label>
-        <label>
+        <label class="text">
+          <span class="text">選択肢1: </span>
           <input type="text" v-model="choice1" placeholder="選択肢1) 鹿児島" />
         </label>
         <label>
+          <span class="text">選択肢2: </span>
           <input type="text" v-model="choice2" placeholder="選択肢2) 東京" />
         </label>
         <label>
+          <span class="text">正解選択肢: </span>
           <input type="text" v-model="answer" placeholder="答え) 沖縄" />
         </label>
         <label>
+          <span class="text">画像: </span>
           <input type="file" @change="confirmImage" v-if="view" />
           <p v-if="confirmedImage">
             <img class="img" :src="confirmedImage" alt />
           </p>
         </label>
         <label>
+          <span class="text">解説: </span>
           <textarea v-model="explainSentence" placeholder="解説"></textarea>
         </label>
 
@@ -121,11 +127,33 @@ export default {
 .adminNew {
   display: flex;
   height: 100vh;
+  background-color: #cecdcd;
+}
+.createMain {
+    padding: 10px 10px 10px 30px;
+    flex: 1;
+    overflow-y: scroll;
+}
+.newForm {
+  display: flex;
+  flex-direction: column;
 }
 .button {
   font-size: 20%;
 }
+label {
+  margin: 5px;
+}
+textarea {
+  width: 70%;
+  height: 100px;
+  border-radius: 30px;
+  padding: 10px 20px;
+}
 .img {
   width: 500px;
+}
+.text {
+  font-weight: bold;
 }
 </style>

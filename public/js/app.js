@@ -3116,6 +3116,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3207,6 +3213,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_admin_sideBar_side__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/admin/sideBar/side */ "./resources/js/components/admin/sideBar/side.vue");
 //
 //
 //
@@ -3246,7 +3253,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    sideBar: _components_admin_sideBar_side__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   data: function data() {
     return {
       category: null,
@@ -8001,7 +8044,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.adminNew[data-v-2225126b] {\n  display: flex;\n  height: 100vh;\n}\n.button[data-v-2225126b] {\n  font-size: 20%;\n}\n.img[data-v-2225126b] {\n  width: 500px;\n}\n", ""]);
+exports.push([module.i, "\n.adminNew[data-v-2225126b] {\n  display: flex;\n  height: 100vh;\n  background-color: #cecdcd;\n}\n.createMain[data-v-2225126b] {\n    padding: 10px 10px 10px 30px;\n    flex: 1;\n    overflow-y: scroll;\n}\n.newForm[data-v-2225126b] {\n  display: flex;\n  flex-direction: column;\n}\n.button[data-v-2225126b] {\n  font-size: 20%;\n}\nlabel[data-v-2225126b] {\n  margin: 5px;\n}\ntextarea[data-v-2225126b] {\n  width: 70%;\n  height: 100px;\n  border-radius: 30px;\n  padding: 10px 20px;\n}\n.img[data-v-2225126b] {\n  width: 500px;\n}\n.text[data-v-2225126b] {\n  font-weight: bold;\n}\n", ""]);
 
 // exports
 
@@ -8020,7 +8063,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.button[data-v-7c3d936b] {\n    font-size: 20%;\n}\n", ""]);
+exports.push([module.i, "\n.button[data-v-7c3d936b] {\n    font-size: 20%;\n}\n.editQuiz[data-v-7c3d936b] {\n    display: flex;\n    height: 100vh;\n    background-color: #cecdcd;\n}\n.editMain[data-v-7c3d936b] {\n    padding: 10px 10px 10px 30px;\n    flex: 1;\n    overflow-y: scroll;\n}\n.editForm[data-v-7c3d936b] {\n    display: flex;\n    flex-direction: column;\n}\n.button[data-v-7c3d936b] {\n    font-size: 20%;\n}\nlabel[data-v-7c3d936b] {\n    margin: 5px;\n}\ntextarea[data-v-7c3d936b] {\n    width: 70%;\n    height: 100px;\n    border-radius: 30px;\n    padding: 10px 20px;\n}\n.img[data-v-7c3d936b] {\n    width: 500px;\n}\n.text[data-v-7c3d936b] {\n    font-weight: bold;\n}\n.historyFlex[data-v-7c3d936b] {\n    display: flex;\n    background-color: antiquewhite;\n    padding: 20px;\n    border-radius: 10px;\n    margin: 10px;\n}\n.history[data-v-7c3d936b] {\n    margin: auto;\n    width: 40%;\n}\n.history p[data-v-7c3d936b] {\n    border-bottom: 1px solid #000000;\n}\n.imgEdit[data-v-7c3d936b] {\n    height: 50px;\n    overflow-x: scroll;\n}\n", ""]);
 
 // exports
 
@@ -41615,9 +41658,10 @@ var render = function() {
       _c("div", { staticClass: "createMain" }, [
         _c("h1", [_vm._v("Quiz")]),
         _vm._v(" "),
-        _c("form", [
+        _c("form", { staticClass: "newForm" }, [
           _c("label", [
-            _vm._v("\n        問題文を入力\n        "),
+            _c("span", { staticClass: "text" }, [_vm._v("問題文を入力")]),
+            _vm._v(" "),
             _c("textarea", {
               directives: [
                 {
@@ -41641,6 +41685,8 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("label", [
+            _c("span", { staticClass: "text" }, [_vm._v("カテゴリー：")]),
+            _vm._v(" "),
             _c(
               "select",
               {
@@ -41678,7 +41724,9 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("label", [
+          _c("label", { staticClass: "text" }, [
+            _c("span", { staticClass: "text" }, [_vm._v("選択肢1: ")]),
+            _vm._v(" "),
             _c("input", {
               directives: [
                 {
@@ -41702,6 +41750,8 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("label", [
+            _c("span", { staticClass: "text" }, [_vm._v("選択肢2: ")]),
+            _vm._v(" "),
             _c("input", {
               directives: [
                 {
@@ -41725,6 +41775,8 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("label", [
+            _c("span", { staticClass: "text" }, [_vm._v("正解選択肢: ")]),
+            _vm._v(" "),
             _c("input", {
               directives: [
                 {
@@ -41748,6 +41800,8 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("label", [
+            _c("span", { staticClass: "text" }, [_vm._v("画像: ")]),
+            _vm._v(" "),
             _vm.view
               ? _c("input", {
                   attrs: { type: "file" },
@@ -41766,6 +41820,8 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("label", [
+            _c("span", { staticClass: "text" }, [_vm._v("解説: ")]),
+            _vm._v(" "),
             _c("textarea", {
               directives: [
                 {
@@ -41829,203 +41885,279 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "edit_quiz" }, [
-    _c("h1", [_vm._v("Edit Quiz")]),
-    _vm._v(" "),
-    _c("form", [
-      _c("label", [
-        _vm._v(" 問題文を入力\n            "),
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.editData.question,
-              expression: "editData.question"
-            }
-          ],
-          attrs: { placeholder: _vm.orderData.question },
-          domProps: { value: _vm.editData.question },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.editData, "question", $event.target.value)
-            }
-          }
-        })
-      ]),
+  return _c(
+    "div",
+    { staticClass: "editQuiz" },
+    [
+      _c("sideBar"),
       _vm._v(" "),
-      _c("label", [
-        _c(
-          "select",
-          {
-            directives: [
+      _c("div", { staticClass: "editMain" }, [
+        _c("h1", [_vm._v("Edit Quiz")]),
+        _vm._v(" "),
+        _c("form", { staticClass: "editForm" }, [
+          _c("label", [
+            _c("span", { staticClass: "text" }, [_vm._v("問題文を入力")]),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.editData.question,
+                  expression: "editData.question"
+                }
+              ],
+              attrs: { placeholder: _vm.orderData.question },
+              domProps: { value: _vm.editData.question },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.editData, "question", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("label", [
+            _c("span", { staticClass: "text" }, [_vm._v("カテゴリー：")]),
+            _vm._v(" "),
+            _c(
+              "select",
               {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.selectCategory,
-                expression: "selectCategory "
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.selectCategory,
+                    expression: "selectCategory "
+                  }
+                ],
+                on: {
+                  change: [
+                    function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.selectCategory = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                    _vm.checkCategory
+                  ]
+                }
+              },
+              _vm._l(_vm.category, function(categoryName) {
+                return _c("option", [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(categoryName.category) +
+                      "\n                    "
+                  )
+                ])
+              }),
+              0
+            )
+          ]),
+          _vm._v(" "),
+          _c("label", [
+            _c("span", { staticClass: "text" }, [_vm._v("選択肢1: ")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.editData.choice1,
+                  expression: "editData.choice1"
+                }
+              ],
+              attrs: {
+                type: "text",
+                placeholder: "選択肢1) 鹿児島",
+                placeholder: _vm.orderData.choice1
+              },
+              domProps: { value: _vm.editData.choice1 },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.editData, "choice1", $event.target.value)
+                }
               }
-            ],
-            on: {
-              change: [
-                function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.selectCategory = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                },
-                _vm.checkCategory
-              ]
-            }
-          },
-          _vm._l(_vm.category, function(categoryName) {
-            return _c("option", [
-              _vm._v(
-                "\n                    " +
-                  _vm._s(categoryName.category) +
-                  "\n                "
-              )
-            ])
-          }),
-          0
-        )
-      ]),
-      _vm._v(" "),
-      _c("label", [
-        _c("input", {
-          directives: [
+            })
+          ]),
+          _vm._v(" "),
+          _c("label", [
+            _c("span", { staticClass: "text" }, [_vm._v("選択肢2: ")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.editData.choice2,
+                  expression: "editData.choice2"
+                }
+              ],
+              attrs: {
+                type: "text",
+                placeholder: "選択肢2) 東京",
+                placeholder: _vm.orderData.choice2
+              },
+              domProps: { value: _vm.editData.choice2 },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.editData, "choice2", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("label", [
+            _c("span", { staticClass: "text" }, [_vm._v("正解選択肢: ")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.editData.correct,
+                  expression: "editData.correct"
+                }
+              ],
+              attrs: {
+                type: "text",
+                placeholder: "答え) 沖縄",
+                placeholder: _vm.orderData.correct
+              },
+              domProps: { value: _vm.editData.correct },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.editData, "correct", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _c("label", [
+            _c("span", { staticClass: "text" }, [_vm._v("解説: ")]),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.editData.explain_sentence,
+                  expression: "editData.explain_sentence"
+                }
+              ],
+              attrs: { placeholder: _vm.orderData.explain_sentence },
+              domProps: { value: _vm.editData.explain_sentence },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(
+                    _vm.editData,
+                    "explain_sentence",
+                    $event.target.value
+                  )
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
             {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.editData.choice1,
-              expression: "editData.choice1"
-            }
-          ],
-          attrs: {
-            type: "text",
-            placeholder: "選択肢1) 鹿児島",
-            placeholder: _vm.orderData.choice1
-          },
-          domProps: { value: _vm.editData.choice1 },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+              staticClass: "button",
+              on: {
+                click: function($event) {
+                  return _vm.onSubmit()
+                }
               }
-              _vm.$set(_vm.editData, "choice1", $event.target.value)
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("label", [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.editData.choice2,
-              expression: "editData.choice2"
-            }
-          ],
-          attrs: {
-            type: "text",
-            placeholder: "選択肢2) 東京",
-            placeholder: _vm.orderData.choice2
-          },
-          domProps: { value: _vm.editData.choice2 },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.editData, "choice2", $event.target.value)
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("label", [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.editData.correct,
-              expression: "editData.correct"
-            }
-          ],
-          attrs: {
-            type: "text",
-            placeholder: "答え) 沖縄",
-            placeholder: _vm.orderData.correct
-          },
-          domProps: { value: _vm.editData.correct },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.editData, "correct", $event.target.value)
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("label"),
-      _vm._v(" "),
-      _c("label", [
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.editData.explain_sentence,
-              expression: "editData.explain_sentence"
-            }
-          ],
-          attrs: { placeholder: _vm.orderData.explain_sentence },
-          domProps: { value: _vm.editData.explain_sentence },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.editData, "explain_sentence", $event.target.value)
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "button",
-          on: {
-            click: function($event) {
-              return _vm.onSubmit()
-            }
-          }
-        },
-        [_vm._v("変更する")]
-      )
-    ]),
-    _vm._v(
-      "\n    " + _vm._s(_vm.editData) + "\n    " + _vm._s(_vm.orderData) + "\n"
-    )
-  ])
+            },
+            [_vm._v("変更する")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "historyFlex" }, [
+          _c("div", { staticClass: "history" }, [
+            _c("p", [_vm._v("変更前")]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.orderData.question))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.orderData.correct))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.orderData.choice1))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.orderData.choice2))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.orderData.explain_sentence))]),
+            _vm._v(" "),
+            _vm.orderData.image_name
+              ? _c("p", { staticClass: "imgEdit" }, [
+                  _vm._v(_vm._s(_vm.orderData.image_name))
+                ])
+              : _c("p", [_vm._v("null")]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.orderData.category_id))])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "history" }, [
+            _c("p", [_vm._v("変更後")]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.editData.question))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.editData.correct))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.editData.choice1))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.editData.choice2))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.editData.explain_sentence))]),
+            _vm._v(" "),
+            _vm.editData.image_name
+              ? _c("p", { staticClass: "imgEdit" }, [
+                  _vm._v(_vm._s(_vm.editData.image_name))
+                ])
+              : _c("p", [_vm._v("null")]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.editData.category_id))])
+          ])
+        ])
+      ])
+    ],
+    1
+  )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _c("span", { staticClass: "text" }, [_vm._v("画像: ")])
+    ])
+  }
+]
 render._withStripped = true
 
 
