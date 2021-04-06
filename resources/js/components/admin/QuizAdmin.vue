@@ -11,8 +11,9 @@
           <div id="delete" v-if="deleteDisplay">
             <div id="content">
               {{ quizId }}
-              <p @click="doDelete">削除</p>
-              <p @click="cancel">キャンセル</p>
+              {{ selectQuiz }}
+              <p class="selectBtn delete" @click="doDelete">削除</p>
+              <p class="selectBtn cansel" @click="cancel">キャンセル</p>
             </div>
           </div>
           <table>
@@ -25,7 +26,7 @@
                 <th>{{ item.question }}</th>
                 <td class="img"><img class="img" :src="`${item.image_name}`" /></td>
                 <td>{{ item.category_id }}</td>
-                <td><RouterLink :to="{name: 'quiz_edit', params: {list: item}}">編集</RouterLink> / <span @click="deleteCheck(item.id)">削除</span></td>
+                <td><RouterLink :to="{name: 'quiz_edit', params: {list: item}}">編集</RouterLink> / <span class="selectBtn1" @click="deleteCheck(item.id, item.question)">削除</span></td>
               </tr>
             </tbody>
           </table>
@@ -47,6 +48,7 @@ export default {
       quizId: null,
       deleteDisplay: false,
       quizCount: 0,
+      selectQuiz: null,
     };
   },
   created() {
@@ -59,12 +61,14 @@ export default {
         .then(
           response => (
             this.quiz = response.data,
-            this.quizCount = response.data.length
+            this.quizCount = response.data.length,
+            console.log(this.quiz)
           )
         );
     },
-    deleteCheck: function(quizId) {
+    deleteCheck: function(quizId, question) {
       this.quizId = quizId;
+      this.selectQuiz = question;
       this.deleteDisplay = true;
     },
     async doDelete() {
@@ -73,6 +77,7 @@ export default {
         id: this.quizId
       };
       await axios.post("/api/admin/quiz/delete", quizId);
+      this.getQuizList();
     },
     cancel: function() {
       this.deleteDisplay = false;
@@ -139,10 +144,27 @@ export default {
       justify-content: center;
 
     }
+    .selectBtn1 {
+      cursor: pointer;
+    }
     #content{
       z-index:2;
       width:50%;
       padding: 1em;
       background:#fff;
+      text-align: center;
+    }
+    .selectBtn {
+      cursor: pointer;
+      padding: 10px;
+      margin: 10px 260px;
+      text-align: center;
+      border-radius: 20px;
+    }
+    .delete:hover {
+      background-color: rgb(255, 72, 0);
+    }
+    .cansel:hover {
+      background-color: aqua;
     }
 </style>

@@ -2102,6 +2102,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2112,7 +2113,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       quiz: null,
       quizId: null,
       deleteDisplay: false,
-      quizCount: 0
+      quizCount: 0,
+      selectQuiz: null
     };
   },
   created: function created() {
@@ -2123,11 +2125,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       axios.get("/api/admin/quiz").then(function (response) {
-        return _this.quiz = response.data, _this.quizCount = response.data.length;
+        return _this.quiz = response.data, _this.quizCount = response.data.length, console.log(_this.quiz);
       });
     },
-    deleteCheck: function deleteCheck(quizId) {
+    deleteCheck: function deleteCheck(quizId, question) {
       this.quizId = quizId;
+      this.selectQuiz = question;
       this.deleteDisplay = true;
     },
     doDelete: function doDelete() {
@@ -2147,6 +2150,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return axios.post("/api/admin/quiz/delete", quizId);
 
               case 4:
+                _this2.getQuizList();
+
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -7881,7 +7887,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.img[data-v-04b4d2c2] {\n    width:300px;\n}\n.display[data-v-04b4d2c2] {\n  display: flex;\n  height: 100vh;\n}\n.adminMain[data-v-04b4d2c2] {\n  padding: 10px 10px 30px 30px;\n  flex: 1;\n  overflow-y: scroll;\n}\n.text[data-v-04b4d2c2] {\n  text-align: right;\n  width: 98%;\n}\n.tableHeader[data-v-04b4d2c2] {\n  background-color: rgb(117, 243, 252);\n}\nth[data-v-04b4d2c2],td[data-v-04b4d2c2] {\n  border: solid 1px;  /* 枠線指定 */\n  padding: 10px;      /* 余白指定 */\n}\ntable[data-v-04b4d2c2] {\n  border-collapse:  collapse; /* セルの線を重ねる */\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(1) {\n  width: 25%;\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(2) {\n  width: 20%;\n}\n.img[data-v-04b4d2c2] {\n  text-align: center;\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(3),\n.tableHeader[data-v-04b4d2c2]:nth-child(4) {\n  width: 10%;\n}\n#delete[data-v-04b4d2c2]{\n  /*　要素を重ねた時の順番　*/\n  z-index:1;\n\n  /*　画面全体を覆う設定　*/\n  position:fixed;\n  top:0;\n  left:0;\n  width:100%;\n  height:100%;\n  background-color:rgba(0,0,0,0.5);\n\n  /*　画面の中央に要素を表示させる設定　*/\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n#content[data-v-04b4d2c2]{\n  z-index:2;\n  width:50%;\n  padding: 1em;\n  background:#fff;\n}\n", ""]);
+exports.push([module.i, "\n.img[data-v-04b4d2c2] {\n    width:300px;\n}\n.display[data-v-04b4d2c2] {\n  display: flex;\n  height: 100vh;\n}\n.adminMain[data-v-04b4d2c2] {\n  padding: 10px 10px 30px 30px;\n  flex: 1;\n  overflow-y: scroll;\n}\n.text[data-v-04b4d2c2] {\n  text-align: right;\n  width: 98%;\n}\n.tableHeader[data-v-04b4d2c2] {\n  background-color: rgb(117, 243, 252);\n}\nth[data-v-04b4d2c2],td[data-v-04b4d2c2] {\n  border: solid 1px;  /* 枠線指定 */\n  padding: 10px;      /* 余白指定 */\n}\ntable[data-v-04b4d2c2] {\n  border-collapse:  collapse; /* セルの線を重ねる */\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(1) {\n  width: 25%;\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(2) {\n  width: 20%;\n}\n.img[data-v-04b4d2c2] {\n  text-align: center;\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(3),\n.tableHeader[data-v-04b4d2c2]:nth-child(4) {\n  width: 10%;\n}\n#delete[data-v-04b4d2c2]{\n  /*　要素を重ねた時の順番　*/\n  z-index:1;\n\n  /*　画面全体を覆う設定　*/\n  position:fixed;\n  top:0;\n  left:0;\n  width:100%;\n  height:100%;\n  background-color:rgba(0,0,0,0.5);\n\n  /*　画面の中央に要素を表示させる設定　*/\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.selectBtn1[data-v-04b4d2c2] {\n  cursor: pointer;\n}\n#content[data-v-04b4d2c2]{\n  z-index:2;\n  width:50%;\n  padding: 1em;\n  background:#fff;\n  text-align: center;\n}\n.selectBtn[data-v-04b4d2c2] {\n  cursor: pointer;\n  padding: 10px;\n  margin: 10px 260px;\n  text-align: center;\n  border-radius: 20px;\n}\n.delete[data-v-04b4d2c2]:hover {\n  background-color: rgb(255, 72, 0);\n}\n.cansel[data-v-04b4d2c2]:hover {\n  background-color: aqua;\n}\n", ""]);
 
 // exports
 
@@ -40675,11 +40681,29 @@ var render = function() {
             ? _c("div", { attrs: { id: "delete" } }, [
                 _c("div", { attrs: { id: "content" } }, [
                   _vm._v(
-                    "\n            " + _vm._s(_vm.quizId) + "\n            "
+                    "\n            " +
+                      _vm._s(_vm.quizId) +
+                      "\n            " +
+                      _vm._s(_vm.selectQuiz) +
+                      "\n            "
                   ),
-                  _c("p", { on: { click: _vm.doDelete } }, [_vm._v("削除")]),
+                  _c(
+                    "p",
+                    {
+                      staticClass: "selectBtn delete",
+                      on: { click: _vm.doDelete }
+                    },
+                    [_vm._v("削除")]
+                  ),
                   _vm._v(" "),
-                  _c("p", { on: { click: _vm.cancel } }, [_vm._v("キャンセル")])
+                  _c(
+                    "p",
+                    {
+                      staticClass: "selectBtn cansel",
+                      on: { click: _vm.cancel }
+                    },
+                    [_vm._v("キャンセル")]
+                  )
                 ])
               ])
             : _vm._e(),
@@ -40724,9 +40748,10 @@ var render = function() {
                       _c(
                         "span",
                         {
+                          staticClass: "selectBtn1",
                           on: {
                             click: function($event) {
-                              return _vm.deleteCheck(item.id)
+                              return _vm.deleteCheck(item.id, item.question)
                             }
                           }
                         },
