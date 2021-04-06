@@ -68,13 +68,13 @@ export default {
       // authストアのloginアクションを呼び出す
       await this.$store.dispatch('auth/login', this.loginForm)
       // トップページに移動する
-      this.$router.push('/')
+      this.$router.push('/admin')
     },
     async register () {
       // authストアのresigterアクションを呼び出す
       await this.$store.dispatch('auth/register', this.registerForm)
       // トップページに移動する
-      this.$router.push('/')
+      this.$router.push('/admin')
     }
   }
 }

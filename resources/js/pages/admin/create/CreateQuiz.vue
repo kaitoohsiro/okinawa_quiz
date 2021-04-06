@@ -1,44 +1,51 @@
 <template>
-  <div>
-    <h1>Quiz</h1>
-    <form>
-      <label>
-        問題文を入力
-        <textarea v-model="quiz" placeholder="問題を入力"></textarea>
-      </label>
-      <label>
-        <select v-model="selectCategory " @change="checkCategory">
-          <option v-for="categoryName in category">{{ categoryName.category }}</option>
-        </select>
-      </label>
-      <label>
-        <input type="text" v-model="choice1" placeholder="選択肢1) 鹿児島" />
-      </label>
-      <label>
-        <input type="text" v-model="choice2" placeholder="選択肢2) 東京" />
-      </label>
-      <label>
-        <input type="text" v-model="answer" placeholder="答え) 沖縄" />
-      </label>
-      <label>
-        <input type="file" @change="confirmImage" v-if="view" />
-        <p v-if="confirmedImage">
-          <img class="img" :src="confirmedImage" alt />
-        </p>
-      </label>
-      <label>
-        <textarea v-model="explainSentence" placeholder="解説"></textarea>
-      </label>
+  <div class="adminNew">
+    <sideBar />
+    <div class="createMain">
+      <h1>Quiz</h1>
+      <form>
+        <label>
+          問題文を入力
+          <textarea v-model="quiz" placeholder="問題を入力"></textarea>
+        </label>
+        <label>
+          <select v-model="selectCategory " @change="checkCategory">
+            <option v-for="categoryName in category">{{ categoryName.category }}</option>
+          </select>
+        </label>
+        <label>
+          <input type="text" v-model="choice1" placeholder="選択肢1) 鹿児島" />
+        </label>
+        <label>
+          <input type="text" v-model="choice2" placeholder="選択肢2) 東京" />
+        </label>
+        <label>
+          <input type="text" v-model="answer" placeholder="答え) 沖縄" />
+        </label>
+        <label>
+          <input type="file" @change="confirmImage" v-if="view" />
+          <p v-if="confirmedImage">
+            <img class="img" :src="confirmedImage" alt />
+          </p>
+        </label>
+        <label>
+          <textarea v-model="explainSentence" placeholder="解説"></textarea>
+        </label>
 
-      <button class="button" @click="onSubmit()">送信する</button>
-    </form>
-    {{ categoryId }}
+        <button class="button" @click="onSubmit()">送信する</button>
+      </form>
+      {{ categoryId }}
+    </div>
   </div>
 </template>
 
 
 <script>
+import sideBar from '../../../components/admin/sideBar/side'
 export default {
+  components: {
+    sideBar
+  },
   data: function() {
     return {
       quiz: null,
@@ -111,6 +118,10 @@ export default {
 </script>
 
 <style scoped>
+.adminNew {
+  display: flex;
+  height: 100vh;
+}
 .button {
   font-size: 20%;
 }
