@@ -7879,7 +7879,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.img[data-v-04b4d2c2] {\n    width:300px;\n}\n.display[data-v-04b4d2c2] {\n  display: flex;\n  height: 100vh;\n}\n.adminMain[data-v-04b4d2c2] {\n  padding: 10px 0px 30px 30px;\n  flex: 1;\n  overflow-y: scroll;\n}\n.text[data-v-04b4d2c2] {\n  text-align: right;\n  width: 90%;\n}\n.tableHeader[data-v-04b4d2c2] {\n  background-color: rgb(117, 243, 252);\n}\nth[data-v-04b4d2c2],td[data-v-04b4d2c2] {\n  border: solid 1px;  /* 枠線指定 */\n  padding: 10px;      /* 余白指定 */\n}\ntable[data-v-04b4d2c2] {\n  border-collapse:  collapse; /* セルの線を重ねる */\n}\n", ""]);
+exports.push([module.i, "\n.img[data-v-04b4d2c2] {\n    width:300px;\n}\n.display[data-v-04b4d2c2] {\n  display: flex;\n  height: 100vh;\n}\n.adminMain[data-v-04b4d2c2] {\n  padding: 10px 10px 30px 30px;\n  flex: 1;\n  overflow-y: scroll;\n}\n.text[data-v-04b4d2c2] {\n  text-align: right;\n  width: 98%;\n}\n.tableHeader[data-v-04b4d2c2] {\n  background-color: rgb(117, 243, 252);\n}\nth[data-v-04b4d2c2],td[data-v-04b4d2c2] {\n  border: solid 1px;  /* 枠線指定 */\n  padding: 10px;      /* 余白指定 */\n}\ntable[data-v-04b4d2c2] {\n  border-collapse:  collapse; /* セルの線を重ねる */\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(1) {\n  width: 25%;\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(2) {\n  width: 20%;\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(3),\n.tableHeader[data-v-04b4d2c2]:nth-child(4) {\n  width: 10%;\n}\n", ""]);
 
 // exports
 

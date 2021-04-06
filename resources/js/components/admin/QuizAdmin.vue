@@ -83,13 +83,13 @@ export default {
       height: 100vh;
     }
     .adminMain {
-      padding: 10px 0px 30px 30px;
+      padding: 10px 10px 30px 30px;
       flex: 1;
       overflow-y: scroll;
     }
     .text {
       text-align: right;
-      width: 90%;
+      width: 98%;
     }
     .tableHeader {
       background-color: rgb(117, 243, 252);
@@ -100,5 +100,15 @@ export default {
     }
     table {
       border-collapse:  collapse; /* セルの線を重ねる */
+    }
+    .tableHeader:nth-child(1) {
+      width: 25%;
+    }
+    .tableHeader:nth-child(2) {
+      width: 20%;
+    }
+    .tableHeader:nth-child(3),
+    .tableHeader:nth-child(4) {
+      width: 10%;
     }
 </style>
