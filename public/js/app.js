@@ -2182,11 +2182,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -7905,7 +7900,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.sideBar[data-v-7d6c2f95] {\n    width: 10%;\n    padding: 10px 50px;\n    background-color: rgba(0, 0, 0, 0.7);\n    text-align: center;\n}\n.menu[data-v-7d6c2f95] {\n    font-size: 30px;\n    color: rgb(157, 146, 253);\n    margin-bottom: 90px;\n}\n.btn[data-v-7d6c2f95] {\n    padding: 10px;\n    border-radius: 10px;\n}\n.btn[data-v-7d6c2f95]:hover {\n    background-color: rgba(182, 59, 59, 0.7)\n}\n.new[data-v-7d6c2f95], .read[data-v-7d6c2f95] {\n    color: #fff;\n    text-decoration: none;\n}\n.delete[data-v-7d6c2f95] {\n    color:rgb(180, 197, 82);\n    cursor: pointer;\n}\n", ""]);
+exports.push([module.i, "\n.sideBar[data-v-7d6c2f95] {\n    width: 10vw;\n    padding: 10px 50px;\n    background-color: rgba(0, 0, 0, 0.7);\n    text-align: center;\n}\n.menu[data-v-7d6c2f95] {\n    font-size: 30px;\n    color: rgb(157, 146, 253);\n    margin-bottom: 90px;\n}\n.btn[data-v-7d6c2f95] {\n    padding: 10px;\n    border-radius: 10px;\n}\n.btn[data-v-7d6c2f95]:hover {\n    background-color: rgba(182, 59, 59, 0.7)\n}\n.new[data-v-7d6c2f95], .read[data-v-7d6c2f95] {\n    color: #fff;\n    text-decoration: none;\n}\n", ""]);
 
 // exports
 
@@ -40800,16 +40795,7 @@ var render = function() {
         ],
         1
       )
-    ]),
-    _vm._v(" "),
-    _vm.deleteDisplay
-      ? _c("div", { staticClass: "delete" }, [
-          _vm._v("\n        " + _vm._s(_vm.quizId) + "\n        "),
-          _c("p", { on: { click: _vm.doDelete } }, [_vm._v("削除")]),
-          _vm._v(" "),
-          _c("p", { on: { click: _vm.cancel } }, [_vm._v("キャンセル")])
-        ])
-      : _vm._e()
+    ])
   ])
 }
 var staticRenderFns = []

@@ -6,11 +6,6 @@
         <p class="btn"><router-link class="new" to="/admin/create">新規作成</router-link></p>
         <!-- <router-link to="admin/create/category">カテゴリ作成</router-link> -->
         </div>
-        <div class="delete" v-if="deleteDisplay">
-            {{ quizId }}
-            <p @click="doDelete">削除</p>
-            <p @click="cancel">キャンセル</p>
-        </div>
     </div>
 </template>
 
@@ -20,7 +15,7 @@ export default {}
 
 <style scoped>
 .sideBar {
-    width: 10%;
+    width: 10vw;
     padding: 10px 50px;
     background-color: rgba(0, 0, 0, 0.7);
     text-align: center;
@@ -40,9 +35,5 @@ export default {}
 .new, .read {
     color: #fff;
     text-decoration: none;
-}
-.delete {
-    color:rgb(180, 197, 82);
-    cursor: pointer;
 }
 </style>
