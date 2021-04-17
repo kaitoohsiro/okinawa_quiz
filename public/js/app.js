@@ -2246,7 +2246,8 @@ __webpack_require__.r(__webpack_exports__);
       showQuestion: true,
       showExplain: false,
       matchAnswer: false,
-      endMsg: false
+      endMsg: false,
+      answerData: []
     };
   },
   created: function created() {
@@ -2282,13 +2283,28 @@ __webpack_require__.r(__webpack_exports__);
       this.showQuestion = false;
       this.showExplain = true;
       var answer = this.quiz[this.questionCount - 1].correct;
+      var quizId = this.quiz[this.questionCount - 1].id;
 
       if (answer === choice) {
+        var answerCode = 1; // 正解
+
         this.totalAnswer++;
         this.matchAnswer = true;
+        this.answerData.push({
+          "questionId": quizId,
+          "answerCode": answerCode
+        });
       } else {
         this.matchAnswer = false;
+        var _answerCode = 2; // 不正解
+
+        this.answerData.push({
+          "questionId": quizId,
+          "answerCode": _answerCode
+        });
       }
+
+      console.log(this.answerData);
     },
     next: function next() {
       if (this.questionCount < this.totalCount) {
@@ -2314,7 +2330,7 @@ __webpack_require__.r(__webpack_exports__);
         this.showQuestion = false;
         this.showExplain = false;
         this.matchanswer = false;
-        this.endMsg = true;
+        this.endMsg = true; // axios.post('/api/admin/quiz/edit', this.answerData);  // TODO api: 難易度データ作成, 難易度表示
       }
     },
     top: function top() {
