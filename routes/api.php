@@ -42,3 +42,6 @@ Route::post('admin/quiz/delete', 'api\admin\DeleteQuizController@handle')->name(
 // ユーザー用
 // 問題取得
 Route::post('/quiz', 'api\Quiz\QuizGetController@handle')->name('quiz');
+
+// 問題難易度用データ保存
+Route::post('/quiz/result', 'api\Quiz\QuizResultPostController@handle')->name('quizResult');

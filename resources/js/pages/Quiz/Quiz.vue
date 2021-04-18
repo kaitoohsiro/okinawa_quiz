@@ -162,7 +162,7 @@ export default {
         this.showExplain = false;
         this.matchanswer = false;
         this.endMsg = true;
-        // axios.post('/api/admin/quiz/edit', this.answerData);  // TODO api: 難易度データ作成, 難易度表示
+        axios.post('/api/quiz/result', this.answerData);  // TODO api: 難易度データ作成, 難易度表示
       }
     },
       top: function() {
