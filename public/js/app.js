@@ -2234,6 +2234,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2246,7 +2248,8 @@ __webpack_require__.r(__webpack_exports__);
       showQuestion: true,
       showExplain: false,
       matchAnswer: false,
-      endMsg: false
+      endMsg: false,
+      answerData: []
     };
   },
   created: function created() {
@@ -2282,12 +2285,25 @@ __webpack_require__.r(__webpack_exports__);
       this.showQuestion = false;
       this.showExplain = true;
       var answer = this.quiz[this.questionCount - 1].correct;
+      var quizId = this.quiz[this.questionCount - 1].id;
 
       if (answer === choice) {
+        var answerCode = 1; // 正解
+
         this.totalAnswer++;
         this.matchAnswer = true;
+        this.answerData.push({
+          "questionId": quizId,
+          "answerCode": answerCode
+        });
       } else {
         this.matchAnswer = false;
+        var _answerCode = 2; // 不正解
+
+        this.answerData.push({
+          "questionId": quizId,
+          "answerCode": _answerCode
+        });
       }
     },
     next: function next() {
@@ -2315,6 +2331,7 @@ __webpack_require__.r(__webpack_exports__);
         this.showExplain = false;
         this.matchanswer = false;
         this.endMsg = true;
+        axios.post('/api/quiz/result', this.answerData); // TODO api: 難易度データ作成, 難易度表示
       }
     },
     top: function top() {
@@ -7863,7 +7880,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#quiz[data-v-2f5cbb36] {\n  text-align: center;\n  height: 100vh;\n}\n.heighta[data-v-2f5cbb36] {\n  height: 10vh;\n}\n.quiz_card[data-v-2f5cbb36] {\n  text-align: center;\n  margin: auto 20%;\n}\n.choice_card[data-v-2f5cbb36] {\n  padding-left: 0;\n}\n.img[data-v-2f5cbb36] {\n    width: 70%;\n    height: 50%;\n}\n.choice_card .choice[data-v-2f5cbb36] {\n  list-style: none;\n  padding: 0.8em 0.5em;\n  cursor: pointer;\n  background-color: #eaeaea;\n  width: 100%;\n  margin: 30px auto;\n  border-radius: 8px;\n  transition: transform ease 0.6s;\n}\n.choice_card .choice[data-v-2f5cbb36]:active {\n  transform: translateY(5px);\n}\n/* 文字サイズ */\n.result[data-v-2f5cbb36],\n.fa-circle[data-v-2f5cbb36],\n.fa-times[data-v-2f5cbb36] {\n  font-size: 2.2rem;\n}\n/* いろ */\n.fa-circle[data-v-2f5cbb36],\n.correct[data-v-2f5cbb36] {\n  color: red;\n}\n.fa-times[data-v-2f5cbb36],\n.bad[data-v-2f5cbb36] {\n  color: blue;\n}\n/* 太さ */\n.result[data-v-2f5cbb36] {\n  font-weight: bold;\n}\n.end_card a[data-v-2f5cbb36] {\n  text-decoration: none;\n  color: #000;\n  font-weight: bold;\n}\n.box14[data-v-2f5cbb36] {\n  padding: 1.5em 0.5em;\n  margin: 2em 0;\n  color: #565656;\n  background: #ffeaea;\n  box-shadow: 0px 0px 0px 10px #ffeaea;\n  border: dashed 2px #ffc3c3;\n  border-radius: 8px;\n}\n.box14 p[data-v-2f5cbb36] {\n  font-size: 1.3rem;\n  margin: 0;\n  padding: 0;\n}\n.explain[data-v-2f5cbb36] {\n  border: 3px solid #999;\n  margin: auto 20%;\n  padding: 0.8em 0.5em;\n  border-radius: 8px;\n}\n.explain p[data-v-2f5cbb36] {\n  font-size: 1.3rem;\n}\n.explain_main[data-v-2f5cbb36] {\n  text-align: left;\n}\n.explain_title[data-v-2f5cbb36] {\n  font-weight: bold;\n  font-size: 1.3rem;\n}\n.btn[data-v-2f5cbb36] {\n  margin: 0.8em 3em;\n  border: 1px solid #fff;\n  background-color: rgba(250, 207, 76, 0.97);\n  box-shadow: 0 4px rgba(189, 156, 57, 0.97);\n  border-radius: 100px;\n  transition: transform ease 0.4s;\n  height: 50px;\n  cursor: pointer;\n}\n.btn[data-v-2f5cbb36]:active {\n  transform: translateY(4px);\n}\n.btn span[data-v-2f5cbb36] {\n  padding: auto;\n  color: #fff;\n  font-size: 1.5rem;\n}\n.end_card[data-v-2f5cbb36] {\n  border: 3px solid #999;\n  margin: auto 20%;\n  padding: 0.8em 0.5em;\n  border-radius: 8px;\n}\n.end_card p[data-v-2f5cbb36] {\n  font-size: 2rem;\n}\n.end_card ul[data-v-2f5cbb36] {\n  padding-left: 0;\n}\n.end[data-v-2f5cbb36] {\n  list-style: none;\n}\n.btn a[data-v-2f5cbb36] {\n  padding: auto;\n  color: #fff;\n  font-size: 1.5rem;\n}\n@media screen and (max-width: 414px) {\n.explain[data-v-2f5cbb36] {\n    margin: auto 0;\n}\n.quiz_card[data-v-2f5cbb36] {\n    margin: auto 10px;\n}\n.choice_card .choice[data-v-2f5cbb36] {\n    width: 95%;\n}\n.end[data-v-2f5cbb36] {\n    margin: auto 0;\n}\n}\n", ""]);
+exports.push([module.i, "\n#quiz[data-v-2f5cbb36] {\n  text-align: center;\n  height: 100vh;\n}\n.heighta[data-v-2f5cbb36] {\n  height: 10vh;\n}\n.quiz_card[data-v-2f5cbb36] {\n  text-align: center;\n  margin: auto 20%;\n}\n.choice_card[data-v-2f5cbb36] {\n  padding-left: 0;\n}\n.img[data-v-2f5cbb36] {\n    width: 70%;\n    height: 50%;\n}\n.choice_card .choice[data-v-2f5cbb36] {\n  list-style: none;\n  padding: 0.8em 0.5em;\n  cursor: pointer;\n  background-color: #eaeaea;\n  width: 100%;\n  margin: 30px auto;\n  border-radius: 8px;\n  transition: transform ease 0.6s;\n}\n.choice_card .choice[data-v-2f5cbb36]:active {\n  transform: translateY(5px);\n}\n/* 文字サイズ */\n.result[data-v-2f5cbb36],\n.fa-circle[data-v-2f5cbb36],\n.fa-times[data-v-2f5cbb36] {\n  font-size: 2.2rem;\n}\n/* いろ */\n.fa-circle[data-v-2f5cbb36],\n.correct[data-v-2f5cbb36] {\n  color: red;\n}\n.fa-times[data-v-2f5cbb36],\n.bad[data-v-2f5cbb36] {\n  color: blue;\n}\n/* 太さ */\n.result[data-v-2f5cbb36] {\n  font-weight: bold;\n}\n.end_card a[data-v-2f5cbb36] {\n  text-decoration: none;\n  color: #000;\n  font-weight: bold;\n}\n.box14[data-v-2f5cbb36] {\n  padding: 1.5em 0.5em 0;\n  margin: 2em 0;\n  color: #565656;\n  background: #ffeaea;\n  box-shadow: 0px 0px 0px 10px #ffeaea;\n  border: dashed 2px #ffc3c3;\n  border-radius: 8px;\n}\n.box14 p[data-v-2f5cbb36] {\n  font-size: 1.3rem;\n  margin: 0;\n  padding: 0;\n}\n.box14 .difficulty_box[data-v-2f5cbb36] {\n  text-align: right;\n  margin-top: 5px;\n}\n.box14 .difficulty[data-v-2f5cbb36] {\n  font-size: 10px;\n  color: rgba(66, 65, 131, 0.97);\n}\n.explain[data-v-2f5cbb36] {\n  border: 3px solid #999;\n  margin: auto 20%;\n  padding: 0.8em 0.5em;\n  border-radius: 8px;\n}\n.explain p[data-v-2f5cbb36] {\n  font-size: 1.3rem;\n}\n.explain_main[data-v-2f5cbb36] {\n  text-align: left;\n}\n.explain_title[data-v-2f5cbb36] {\n  font-weight: bold;\n  font-size: 1.3rem;\n}\n.btn[data-v-2f5cbb36] {\n  margin: 0.8em 3em;\n  border: 1px solid #fff;\n  background-color: rgba(250, 207, 76, 0.97);\n  box-shadow: 0 4px rgba(189, 156, 57, 0.97);\n  border-radius: 100px;\n  transition: transform ease 0.4s;\n  height: 50px;\n  cursor: pointer;\n}\n.btn[data-v-2f5cbb36]:active {\n  transform: translateY(4px);\n}\n.btn span[data-v-2f5cbb36] {\n  padding: auto;\n  color: #fff;\n  font-size: 1.5rem;\n}\n.end_card[data-v-2f5cbb36] {\n  border: 3px solid #999;\n  margin: auto 20%;\n  padding: 0.8em 0.5em;\n  border-radius: 8px;\n}\n.end_card p[data-v-2f5cbb36] {\n  font-size: 2rem;\n}\n.end_card ul[data-v-2f5cbb36] {\n  padding-left: 0;\n}\n.end[data-v-2f5cbb36] {\n  list-style: none;\n}\n.btn a[data-v-2f5cbb36] {\n  padding: auto;\n  color: #fff;\n  font-size: 1.5rem;\n}\n@media screen and (max-width: 414px) {\n.explain[data-v-2f5cbb36] {\n    margin: auto 0;\n}\n.quiz_card[data-v-2f5cbb36] {\n    margin: auto 10px;\n}\n.choice_card .choice[data-v-2f5cbb36] {\n    width: 95%;\n}\n.end[data-v-2f5cbb36] {\n    margin: auto 0;\n}\n}\n", ""]);
 
 // exports
 
@@ -40699,6 +40716,16 @@ var render = function() {
                         _vm._s(_vm.questionCount) +
                         ". " +
                         _vm._s(_vm.quiz[_vm.questionCount - 1].question)
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "difficulty_box" }, [
+                  _c("p", { staticClass: "difficulty" }, [
+                    _vm._v(
+                      "正答率 " +
+                        _vm._s(_vm.quiz[_vm.questionCount - 1].difficulty) +
+                        " %"
                     )
                   ])
                 ])

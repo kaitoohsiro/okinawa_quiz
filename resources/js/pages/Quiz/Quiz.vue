@@ -9,6 +9,9 @@
             <p>
               <span>QUESTION {{ questionCount }}. {{ quiz[questionCount - 1].question }}</span>
             </p>
+            <div class="difficulty_box">
+              <p class="difficulty">正答率 {{ quiz[questionCount - 1].difficulty }} %</p>
+            </div>
           </div>
         </div>
       </div>
@@ -60,7 +63,6 @@
             <a href="#">リトライ</a>
           </li>
         </ul>
-        <!--                <p>Twitterで共有</p>-->
       </div>
     </div>
   </div>
@@ -79,7 +81,8 @@ export default {
       showQuestion: true,
       showExplain: false,
       matchAnswer: false,
-      endMsg: false
+      endMsg: false,
+      answerData: [],
     };
   },
   created() {
@@ -115,11 +118,22 @@ export default {
       this.showQuestion = false;
       this.showExplain = true;
       let answer = this.quiz[this.questionCount - 1].correct;
+      let quizId = this.quiz[this.questionCount - 1].id;
       if (answer === choice) {
+        let answerCode = 1;  // 正解
         this.totalAnswer++;
         this.matchAnswer = true;
+        this.answerData.push({
+          "questionId": quizId,
+          "answerCode": answerCode,
+        });
       } else {
         this.matchAnswer = false;
+        let answerCode = 2;  // 不正解
+        this.answerData.push({
+          "questionId": quizId,
+          "answerCode": answerCode,
+        });
       }
     },
     next: function() {
@@ -149,6 +163,7 @@ export default {
         this.showExplain = false;
         this.matchanswer = false;
         this.endMsg = true;
+        axios.post('/api/quiz/result', this.answerData);  // TODO api: 難易度データ作成, 難易度表示
       }
     },
       top: function() {
@@ -236,7 +251,7 @@ export default {
   font-weight: bold;
 }
 .box14 {
-  padding: 1.5em 0.5em;
+  padding: 1.5em 0.5em 0;
   margin: 2em 0;
   color: #565656;
   background: #ffeaea;
@@ -248,6 +263,14 @@ export default {
   font-size: 1.3rem;
   margin: 0;
   padding: 0;
+}
+.box14 .difficulty_box {
+  text-align: right;
+  margin-top: 5px;
+}
+.box14 .difficulty {
+  font-size: 10px;
+  color: rgba(66, 65, 131, 0.97);
 }
 .explain {
   border: 3px solid #999;
