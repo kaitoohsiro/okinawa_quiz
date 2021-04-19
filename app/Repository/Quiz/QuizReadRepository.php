@@ -4,7 +4,7 @@ namespace App\Repository\Quiz;
 
 use App\model\Question;
 use App\model\Category;
-
+use App\model\QuizDifficulty;
 
 class QuizReadRepository
 {
@@ -53,14 +53,31 @@ class QuizReadRepository
      */
     public function getQuiz($categoryId)
     {
+        $quizDifficulty = new QuizDifficulty();
         $quizData = $this->model;
-        if ($categoryId) {
-            $quizData = $quizData::where('category_id', '=', $categoryId);
-        }
         $quizData = $quizData->inRandomOrder()
             ->take(5)
             ->get();
+        $difficultyData = [];
+        foreach ($quizData as $quiz) {
+            array_push($difficultyData, $quiz['id']);
+        }
+        $difficultyElement = $quizDifficulty::whereIn('question_id', $difficultyData)
+            ->select('question_id', 'solved_number', 'number_of_correct')
+            ->get();
 
+        foreach ($quizData as $quiz) {
+            foreach ($difficultyElement as $element) {
+                if ($quiz['id'] === $element['question_id']) {
+                    if ($element['number_of_correct'] === 0) {
+                        $difficulty = 0;
+                    } else {
+                        $difficulty = round(($element['solved_number'] / $element['number_of_correct']) * 100, 1);
+                    }
+                    $quiz['difficulty'] = $difficulty;
+                }
+            }
+        }
         return $quizData;
     }
 }

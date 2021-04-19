@@ -34,25 +34,29 @@ class QuizResultWriteRepository
     public function postQuizResult($inputData)
     {
         $questionIdData = [];
-
         for ($i = 0; $i < 5; $i++) {
-            array_push($questionIdData, $inputData[$i]['questionId']);
+            $beforeQuizDifficulty = $this->model::where('question_id', $inputData[$i]['questionId'])->first();
+
+            if ($inputData[$i]["answerCode"] == 1) {
+                $afterQuizDifficulty = [
+                    'question_id' => $beforeQuizDifficulty['question_id'],
+                    'solved_number' => $beforeQuizDifficulty['solved_number'] + 1,
+                    'number_of_correct' => $beforeQuizDifficulty['number_of_correct'] + 1,
+                ];
+            } else if ($inputData[$i]["answerCode"] == 2) {
+                $afterQuizDifficulty = [
+                    'question_id' => $beforeQuizDifficulty['question_id'],
+                    'solved_number' => $beforeQuizDifficulty['solved_number'] + 0,
+                    'number_of_correct' => $beforeQuizDifficulty['number_of_correct'] + 1,
+                ];
+            }
+
+        $this->model::where('question_id', $afterQuizDifficulty['question_id'])
+            ->update([
+                'question_id' => $afterQuizDifficulty['question_id'],
+                'solved_number' => $afterQuizDifficulty['solved_number'],
+                'number_of_correct' => $afterQuizDifficulty['number_of_correct'],
+            ]);
         }
-
-        // TODO question_idが一致するデータ全て取得
-
-        // TODO question_idからデータを書き換える
-
-        // TODO データ更新または新規作成
-
-        // $this->model::insert([
-        //     'question' => $inputData['quiz'],
-        //     'correct' => $inputData['answer'],
-        //     'choice1' => $inputData['choice1'],
-        //     'choice2' => $inputData['choice2'],
-        //     'explain_sentence' => $inputData['explainSentence'],
-        //     'image_name' => $imageUrl,
-        //     'category_id' => $inputData['categoryId']
-        // ]);
     }
 }

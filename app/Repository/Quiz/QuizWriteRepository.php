@@ -3,6 +3,7 @@
 namespace App\Repository\Quiz;
 
 use App\model\Question;
+use App\model\QuizDifficulty;
 use Storage;
 
 class QuizWriteRepository
@@ -33,6 +34,7 @@ class QuizWriteRepository
      */
     public function createQuiz($inputData)
     {
+        $quizDifficulty = new QuizDifficulty();
         $imageUrl = null;
 
         if (request()->file) {
@@ -41,7 +43,7 @@ class QuizWriteRepository
             $imageUrl = Storage::disk('s3')->url($path);
         }
 
-        $this->model::insert([
+        $questionData = $this->model::create([
             'question' => $inputData['quiz'],
             'correct' => $inputData['answer'],
             'choice1' => $inputData['choice1'],
@@ -49,6 +51,9 @@ class QuizWriteRepository
             'explain_sentence' => $inputData['explainSentence'],
             'image_name' => $imageUrl,
             'category_id' => $inputData['categoryId']
+        ]);
+        $quizDifficulty::insert([
+            'question_id' => $questionData->id,
         ]);
     }
 

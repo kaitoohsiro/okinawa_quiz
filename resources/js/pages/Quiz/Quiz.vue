@@ -9,6 +9,9 @@
             <p>
               <span>QUESTION {{ questionCount }}. {{ quiz[questionCount - 1].question }}</span>
             </p>
+            <div class="difficulty_box">
+              <p class="difficulty">正答率 {{ quiz[questionCount - 1].difficulty }} %</p>
+            </div>
           </div>
         </div>
       </div>
@@ -60,7 +63,6 @@
             <a href="#">リトライ</a>
           </li>
         </ul>
-        <!--                <p>Twitterで共有</p>-->
       </div>
     </div>
   </div>
@@ -133,7 +135,6 @@ export default {
           "answerCode": answerCode,
         });
       }
-      console.log(this.answerData);
     },
     next: function() {
       if (this.questionCount < this.totalCount) {
@@ -250,7 +251,7 @@ export default {
   font-weight: bold;
 }
 .box14 {
-  padding: 1.5em 0.5em;
+  padding: 1.5em 0.5em 0;
   margin: 2em 0;
   color: #565656;
   background: #ffeaea;
@@ -262,6 +263,14 @@ export default {
   font-size: 1.3rem;
   margin: 0;
   padding: 0;
+}
+.box14 .difficulty_box {
+  text-align: right;
+  margin-top: 5px;
+}
+.box14 .difficulty {
+  font-size: 10px;
+  color: rgba(66, 65, 131, 0.97);
 }
 .explain {
   border: 3px solid #999;

@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use App\model\QuizDifficulty;
+use App\model\Question;
 
 class QuestionDifficulty extends Seeder
 {
@@ -13,25 +13,18 @@ class QuestionDifficulty extends Seeder
      */
     public function run()
     {
-        $allQuizDifficulty = [
-            $quiz1 = [
-                'question_id' => '1',
-                'solved_number' => 20,
-                'number_of_correct'=> 10,
-            ],
-            $quiz2 = [
-                'question_id' => '2',
-                'solved_number' => 30,
-                'number_of_correct'=> 13,
-            ],
-            $quiz3 = [
-                'question_id' => '3',
-                'solved_number' => 100,
-                'number_of_correct'=> 20,
-            ],
-        ];
-        foreach ($allQuizDifficulty as $QuizDifficulty) {
-            DB::table('quiz_difficulty')->insert($QuizDifficulty);
+        $question = new Question();
+        $quizDifficulty = new QuizDifficulty();
+        $allQuestionId = $question::select('id as question_id')->get();
+
+        $insertData = [];
+        foreach ($allQuestionId as $questionId) {
+            array_push($insertData,[
+                'question_id' => $questionId['question_id'],
+                'solved_number' => 0,
+                'number_of_correct' => 0,
+            ]);
         }
+        $quizDifficulty::insert($insertData);
     }
 }

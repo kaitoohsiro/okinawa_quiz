@@ -16,9 +16,10 @@ class CreateQuizDifficultyTable extends Migration
         Schema::create('quiz_difficulty', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('question_id')->unsigned();
-            $table->integer('solved_number');
-            $table->integer('number_of_correct');
-            $table->timestamps();
+            $table->integer('solved_number')->default(0);
+            $table->integer('number_of_correct')->default(0);
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
 
             $table->foreign('question_id')
             ->references('id')
