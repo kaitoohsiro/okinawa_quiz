@@ -83,7 +83,6 @@ class QuizReadRepository
                 }
             }
         }
-        logger($quizData);
         return $quizData;
     }
 }
