@@ -36,6 +36,7 @@ class QuizReadRepository
     public function getQuizAdmin()
     {
         $questionData = $this->model::get();
+        // TODO 管理者から正答率を見えるようにする
         return $questionData;
     }
 
@@ -55,6 +56,9 @@ class QuizReadRepository
     {
         $quizDifficulty = new QuizDifficulty();
         $quizData = $this->model;
+        if ($categoryId) {
+            $quizData = $quizData::where('category_id', $categoryId);
+        }
         $quizData = $quizData->inRandomOrder()
             ->take(5)
             ->get();
@@ -62,6 +66,7 @@ class QuizReadRepository
         foreach ($quizData as $quiz) {
             array_push($difficultyData, $quiz['id']);
         }
+        // TODO ↓これは正答率ようデータだから場所を変える！！
         $difficultyElement = $quizDifficulty::whereIn('question_id', $difficultyData)
             ->select('question_id', 'solved_number', 'number_of_correct')
             ->get();
@@ -78,6 +83,7 @@ class QuizReadRepository
                 }
             }
         }
+        logger($quizData);
         return $quizData;
     }
 }
