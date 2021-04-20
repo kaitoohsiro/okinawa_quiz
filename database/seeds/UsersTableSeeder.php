@@ -14,9 +14,9 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $param = [
-            'name' => 'kaito',
-            'email' => 'kaito@admin.com',
-            'password' => Hash::make('testtest'),
+            'name' => env('ADMIN_NAME'),
+            'email' => env('ADMIN_EMAIL'),
+            'password' => Hash::make(env('ADMIN_PASSWORD')),
         ];
 
         $query = new User();
