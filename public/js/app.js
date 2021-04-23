@@ -2095,6 +2095,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2120,7 +2128,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return _this.quiz = response.data, _this.quizCount = response.data.length;
       });
     },
-    deleteCheck: function deleteCheck(quizId) {
+    deleteCheck: function deleteCheck(quizId, question) {
       this.quizId = quizId;
       this.deleteDisplay = true;
       this.selectQuiz = question;
@@ -3088,6 +3096,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_admin_sideBar_side__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/admin/sideBar/side */ "./resources/js/components/admin/sideBar/side.vue");
+//
 //
 //
 //
@@ -7937,7 +7946,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.img[data-v-04b4d2c2] {\n    width:300px;\n}\n.display[data-v-04b4d2c2] {\n  display: flex;\n  height: 100vh;\n}\n.adminMain[data-v-04b4d2c2] {\n  padding: 10px 10px 30px 30px;\n  flex: 1;\n  overflow-y: scroll;\n}\n.text[data-v-04b4d2c2] {\n  text-align: right;\n  width: 98%;\n}\n.tableHeader[data-v-04b4d2c2] {\n  background-color: rgb(117, 243, 252);\n}\nth[data-v-04b4d2c2],td[data-v-04b4d2c2] {\n  border: solid 1px;  /* 枠線指定 */\n  padding: 10px;      /* 余白指定 */\n}\ntable[data-v-04b4d2c2] {\n  border-collapse:  collapse; /* セルの線を重ねる */\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(1) {\n  width: 25%;\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(2) {\n  width: 20%;\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(3),\n.tableHeader[data-v-04b4d2c2]:nth-child(4) {\n  width: 10%;\n}\n#delete[data-v-04b4d2c2]{\n  /*　要素を重ねた時の順番　*/\n  z-index:1;\n  /*　画面全体を覆う設定　*/\n  position:fixed;\n  top:0;\n  left:0;\n  width:100%;\n  height:100%;\n  background-color:rgba(0,0,0,0.5);\n  /*　画面の中央に要素を表示させる設定　*/\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.selectBtn1[data-v-04b4d2c2] {\n  cursor: pointer;\n}\n#content[data-v-04b4d2c2]{\n  z-index:2;\n  width:50%;\n  padding: 1em;\n  background:#fff;\n  text-align: center;\n}\n.selectBtn[data-v-04b4d2c2] {\n  cursor: pointer;\n  padding: 10px;\n  margin: 10px 260px;\n  text-align: center;\n  border-radius: 20px;\n}\n.delete[data-v-04b4d2c2]:hover {\n  background-color: rgb(255, 72, 0);\n}\n.cansel[data-v-04b4d2c2]:hover {\n  background-color: aqua;\n}\n", ""]);
+exports.push([module.i, "\n.img[data-v-04b4d2c2] {\n    width:300px;\n}\n.display[data-v-04b4d2c2] {\n  display: flex;\n  height: 100vh;\n}\n.adminMain[data-v-04b4d2c2] {\n  padding: 10px 10px 30px 30px;\n  flex: 1;\n  overflow-y: scroll;\n}\n.text[data-v-04b4d2c2] {\n  text-align: right;\n  width: 98%;\n}\n.tableHeader[data-v-04b4d2c2] {\n  background-color: rgb(117, 243, 252);\n}\nth[data-v-04b4d2c2],td[data-v-04b4d2c2] {\n  border: solid 1px;  /* 枠線指定 */\n  padding: 10px;      /* 余白指定 */\n}\ntable[data-v-04b4d2c2] {\n  border-collapse:  collapse; /* セルの線を重ねる */\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(1) {\n  width: 25%;\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(2) {\n  width: 20%;\n}\n.img[data-v-04b4d2c2] {\n  text-align: center;\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(3),\n.tableHeader[data-v-04b4d2c2]:nth-child(4) {\n  width: 10%;\n}\n#delete[data-v-04b4d2c2]{\n  /*　要素を重ねた時の順番　*/\n  z-index:1;\n  /*　画面全体を覆う設定　*/\n  position:fixed;\n  top:0;\n  left:0;\n  width:100%;\n  height:100%;\n  background-color:rgba(0,0,0,0.5);\n  /*　画面の中央に要素を表示させる設定　*/\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.selectBtn1[data-v-04b4d2c2] {\n  cursor: pointer;\n}\n#content[data-v-04b4d2c2]{\n  z-index:2;\n  width:50%;\n  padding: 1em;\n  background:#fff;\n  text-align: center;\n}\n.selectBtn[data-v-04b4d2c2] {\n  cursor: pointer;\n  padding: 10px;\n  margin: 10px 260px;\n  text-align: center;\n  border-radius: 20px;\n}\n.delete[data-v-04b4d2c2]:hover {\n  background-color: rgb(255, 72, 0);\n}\n.cansel[data-v-04b4d2c2]:hover {\n  background-color: aqua;\n}\n", ""]);
 
 // exports
 
@@ -40727,6 +40736,37 @@ var render = function() {
             _c("p", [_vm._v("問題数:" + _vm._s(_vm.quizCount))])
           ]),
           _vm._v(" "),
+          _vm.deleteDisplay
+            ? _c("div", { attrs: { id: "delete" } }, [
+                _c("div", { attrs: { id: "content" } }, [
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(_vm.quizId) +
+                      "\n            " +
+                      _vm._s(_vm.selectQuiz) +
+                      "\n            "
+                  ),
+                  _c(
+                    "p",
+                    {
+                      staticClass: "selectBtn delete",
+                      on: { click: _vm.doDelete }
+                    },
+                    [_vm._v("削除")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      staticClass: "selectBtn cansel",
+                      on: { click: _vm.cancel }
+                    },
+                    [_vm._v("キャンセル")]
+                  )
+                ])
+              ])
+            : _vm._e(),
+          _vm._v(" "),
           _c("table", [
             _c("th", { staticClass: "tableHeader" }, [_vm._v("問題")]),
             _vm._v(" "),
@@ -40742,7 +40782,7 @@ var render = function() {
                 return _c("tr", [
                   _c("th", [_vm._v(_vm._s(item.question))]),
                   _vm._v(" "),
-                  _c("td", [
+                  _c("td", { staticClass: "img" }, [
                     _c("img", {
                       staticClass: "img",
                       attrs: { src: "" + item.image_name }
@@ -41653,9 +41693,10 @@ var render = function() {
       _c("div", { staticClass: "createMain" }, [
         _c("h1", [_vm._v("Quiz")]),
         _vm._v(" "),
-        _c("form", [
+        _c("form", { staticClass: "newForm" }, [
           _c("label", [
-            _vm._v("\n        問題文を入力\n        "),
+            _c("span", { staticClass: "text" }, [_vm._v("問題文を入力")]),
+            _vm._v(" "),
             _c("textarea", {
               directives: [
                 {
@@ -41679,6 +41720,8 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("label", [
+            _c("span", { staticClass: "text" }, [_vm._v("カテゴリー：")]),
+            _vm._v(" "),
             _c(
               "select",
               {

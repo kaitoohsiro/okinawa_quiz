@@ -8,6 +8,14 @@
           <div class="text">
             <p>問題数:{{ quizCount }}</p>
           </div>
+          <div id="delete" v-if="deleteDisplay">
+            <div id="content">
+              {{ quizId }}
+              {{ selectQuiz }}
+              <p class="selectBtn delete" @click="doDelete">削除</p>
+              <p class="selectBtn cansel" @click="cancel">キャンセル</p>
+            </div>
+          </div>
           <table>
             <th class="tableHeader">問題</th>
             <th class="tableHeader">画像</th>
@@ -16,7 +24,7 @@
             <tbody>
               <tr v-for="item in quiz">
                 <th>{{ item.question }}</th>
-                <td><img class="img" :src="`${item.image_name}`" /></td>
+                <td class="img"><img class="img" :src="`${item.image_name}`" /></td>
                 <td>{{ item.category_id }}</td>
                 <td><RouterLink :to="{name: 'quiz_edit', params: {list: item}}">編集</RouterLink> / <span class="selectBtn1" @click="deleteCheck(item.id, item.question)">削除</span></td>
               </tr>
@@ -57,7 +65,7 @@ export default {
           )
         );
     },
-    deleteCheck: function(quizId) {
+    deleteCheck: function(quizId, question) {
       this.quizId = quizId;
       this.deleteDisplay = true;
       this.selectQuiz = question;
@@ -104,11 +112,14 @@ export default {
     table {
       border-collapse:  collapse; /* セルの線を重ねる */
     }
-    .tableHeader:nth-child(1) {
+        .tableHeader:nth-child(1) {
       width: 25%;
     }
     .tableHeader:nth-child(2) {
       width: 20%;
+    }
+    .img {
+      text-align: center;
     }
     .tableHeader:nth-child(3),
     .tableHeader:nth-child(4) {

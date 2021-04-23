@@ -3,12 +3,13 @@
     <sideBar />
     <div class="createMain">
       <h1>Quiz</h1>
-      <form>
+      <form class="newForm">
         <label>
-          問題文を入力
+          <span class="text">問題文を入力</span>
           <textarea v-model="quiz" placeholder="問題を入力"></textarea>
         </label>
         <label>
+          <span class="text">カテゴリー：</span>
           <select v-model="selectCategory " @change="checkCategory">
             <option v-for="categoryName in category">{{ categoryName.category }}</option>
           </select>
