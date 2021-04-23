@@ -210,8 +210,8 @@ export default {
   padding-left: 0;
 }
 .img {
-    width: 70%;
-    height: 50%;
+    width: 30%;
+    height: 30%;
 }
 .choice_card .choice {
   list-style: none;
@@ -336,6 +336,10 @@ export default {
   }
   .choice_card .choice {
     width: 95%;
+  }
+  .img {
+    width: 70%;
+    height: 50%;
   }
   .end {
     margin: auto 0;

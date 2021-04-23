@@ -2105,7 +2105,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       quiz: null,
       quizId: null,
       deleteDisplay: false,
-      quizCount: 0
+      quizCount: 0,
+      selectQuiz: null
     };
   },
   created: function created() {
@@ -2122,6 +2123,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     deleteCheck: function deleteCheck(quizId) {
       this.quizId = quizId;
       this.deleteDisplay = true;
+      this.selectQuiz = question;
     },
     doDelete: function doDelete() {
       var _this2 = this;
@@ -2140,6 +2142,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return axios.post("/api/admin/quiz/delete", quizId);
 
               case 4:
+                _this2.getQuizList();
+
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -3035,7 +3040,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 // トップページに移動する
-                _this.$router.push('/');
+                _this.$router.push('/admin');
 
               case 3:
               case "end":
@@ -3058,7 +3063,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
               case 2:
                 // トップページに移動する
-                _this2.$router.push('/');
+                _this2.$router.push('/admin');
 
               case 3:
               case "end":
@@ -3082,6 +3087,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_admin_sideBar_side__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/admin/sideBar/side */ "./resources/js/components/admin/sideBar/side.vue");
 //
 //
 //
@@ -3121,7 +3127,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    sideBar: _components_admin_sideBar_side__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   data: function data() {
     return {
       quiz: null,
@@ -3208,6 +3220,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_admin_sideBar_side__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../components/admin/sideBar/side */ "./resources/js/components/admin/sideBar/side.vue");
 //
 //
 //
@@ -3247,7 +3260,43 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    sideBar: _components_admin_sideBar_side__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   data: function data() {
     return {
       category: null,
@@ -7888,7 +7937,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n.img[data-v-04b4d2c2] {\n    width:300px;\n}\n.display[data-v-04b4d2c2] {\n  display: flex;\n  height: 100vh;\n}\n.adminMain[data-v-04b4d2c2] {\n  padding: 10px 10px 30px 30px;\n  flex: 1;\n  overflow-y: scroll;\n}\n.text[data-v-04b4d2c2] {\n  text-align: right;\n  width: 98%;\n}\n.tableHeader[data-v-04b4d2c2] {\n  background-color: rgb(117, 243, 252);\n}\nth[data-v-04b4d2c2],td[data-v-04b4d2c2] {\n  border: solid 1px;  /* 枠線指定 */\n  padding: 10px;      /* 余白指定 */\n}\ntable[data-v-04b4d2c2] {\n  border-collapse:  collapse; /* セルの線を重ねる */\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(1) {\n  width: 25%;\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(2) {\n  width: 20%;\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(3),\n.tableHeader[data-v-04b4d2c2]:nth-child(4) {\n  width: 10%;\n}\n", ""]);
+exports.push([module.i, "\n.img[data-v-04b4d2c2] {\n    width:300px;\n}\n.display[data-v-04b4d2c2] {\n  display: flex;\n  height: 100vh;\n}\n.adminMain[data-v-04b4d2c2] {\n  padding: 10px 10px 30px 30px;\n  flex: 1;\n  overflow-y: scroll;\n}\n.text[data-v-04b4d2c2] {\n  text-align: right;\n  width: 98%;\n}\n.tableHeader[data-v-04b4d2c2] {\n  background-color: rgb(117, 243, 252);\n}\nth[data-v-04b4d2c2],td[data-v-04b4d2c2] {\n  border: solid 1px;  /* 枠線指定 */\n  padding: 10px;      /* 余白指定 */\n}\ntable[data-v-04b4d2c2] {\n  border-collapse:  collapse; /* セルの線を重ねる */\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(1) {\n  width: 25%;\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(2) {\n  width: 20%;\n}\n.tableHeader[data-v-04b4d2c2]:nth-child(3),\n.tableHeader[data-v-04b4d2c2]:nth-child(4) {\n  width: 10%;\n}\n#delete[data-v-04b4d2c2]{\n  /*　要素を重ねた時の順番　*/\n  z-index:1;\n  /*　画面全体を覆う設定　*/\n  position:fixed;\n  top:0;\n  left:0;\n  width:100%;\n  height:100%;\n  background-color:rgba(0,0,0,0.5);\n  /*　画面の中央に要素を表示させる設定　*/\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.selectBtn1[data-v-04b4d2c2] {\n  cursor: pointer;\n}\n#content[data-v-04b4d2c2]{\n  z-index:2;\n  width:50%;\n  padding: 1em;\n  background:#fff;\n  text-align: center;\n}\n.selectBtn[data-v-04b4d2c2] {\n  cursor: pointer;\n  padding: 10px;\n  margin: 10px 260px;\n  text-align: center;\n  border-radius: 20px;\n}\n.delete[data-v-04b4d2c2]:hover {\n  background-color: rgb(255, 72, 0);\n}\n.cansel[data-v-04b4d2c2]:hover {\n  background-color: aqua;\n}\n", ""]);
 
 // exports
 
@@ -7926,7 +7975,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n#quiz[data-v-2f5cbb36] {\n  text-align: center;\n  height: 100vh;\n}\n.heighta[data-v-2f5cbb36] {\n  height: 10vh;\n}\n.quiz_card[data-v-2f5cbb36] {\n  text-align: center;\n  margin: auto 20%;\n}\n.choice_card[data-v-2f5cbb36] {\n  padding-left: 0;\n}\n.img[data-v-2f5cbb36] {\n    width: 70%;\n    height: 50%;\n}\n.choice_card .choice[data-v-2f5cbb36] {\n  list-style: none;\n  padding: 0.8em 0.5em;\n  cursor: pointer;\n  background-color: #eaeaea;\n  width: 100%;\n  margin: 30px auto;\n  border-radius: 8px;\n  transition: transform ease 0.6s;\n}\n.choice_card .choice[data-v-2f5cbb36]:active {\n  transform: translateY(5px);\n}\n/* 文字サイズ */\n.result[data-v-2f5cbb36],\n.fa-circle[data-v-2f5cbb36],\n.fa-times[data-v-2f5cbb36] {\n  font-size: 2.2rem;\n}\n/* いろ */\n.fa-circle[data-v-2f5cbb36],\n.correct[data-v-2f5cbb36] {\n  color: red;\n}\n.fa-times[data-v-2f5cbb36],\n.bad[data-v-2f5cbb36] {\n  color: blue;\n}\n/* 太さ */\n.result[data-v-2f5cbb36] {\n  font-weight: bold;\n}\n.end_card a[data-v-2f5cbb36] {\n  text-decoration: none;\n  color: #000;\n  font-weight: bold;\n}\n.box14[data-v-2f5cbb36] {\n  padding: 1.5em 0.5em 0;\n  margin: 2em 0;\n  color: #565656;\n  background: #ffeaea;\n  box-shadow: 0px 0px 0px 10px #ffeaea;\n  border: dashed 2px #ffc3c3;\n  border-radius: 8px;\n}\n.box14 p[data-v-2f5cbb36] {\n  font-size: 1.3rem;\n  margin: 0;\n  padding: 0;\n}\n.box14 .difficulty_box[data-v-2f5cbb36] {\n  text-align: right;\n  margin-top: 5px;\n}\n.box14 .difficulty[data-v-2f5cbb36] {\n  font-size: 10px;\n  color: rgba(66, 65, 131, 0.97);\n}\n.explain[data-v-2f5cbb36] {\n  border: 3px solid #999;\n  margin: auto 20%;\n  padding: 0.8em 0.5em;\n  border-radius: 8px;\n}\n.explain p[data-v-2f5cbb36] {\n  font-size: 1.3rem;\n}\n.explain_main[data-v-2f5cbb36] {\n  text-align: left;\n}\n.explain_title[data-v-2f5cbb36] {\n  font-weight: bold;\n  font-size: 1.3rem;\n}\n.btn[data-v-2f5cbb36] {\n  margin: 0.8em 3em;\n  border: 1px solid #fff;\n  background-color: rgba(250, 207, 76, 0.97);\n  box-shadow: 0 4px rgba(189, 156, 57, 0.97);\n  border-radius: 100px;\n  transition: transform ease 0.4s;\n  height: 50px;\n  cursor: pointer;\n}\n.btn[data-v-2f5cbb36]:active {\n  transform: translateY(4px);\n}\n.btn span[data-v-2f5cbb36] {\n  padding: auto;\n  color: #fff;\n  font-size: 1.5rem;\n}\n.end_card[data-v-2f5cbb36] {\n  border: 3px solid #999;\n  margin: auto 20%;\n  padding: 0.8em 0.5em;\n  border-radius: 8px;\n}\n.end_card p[data-v-2f5cbb36] {\n  font-size: 2rem;\n}\n.end_card ul[data-v-2f5cbb36] {\n  padding-left: 0;\n}\n.end[data-v-2f5cbb36] {\n  list-style: none;\n}\n.btn a[data-v-2f5cbb36] {\n  padding: auto;\n  color: #fff;\n  font-size: 1.5rem;\n}\n@media screen and (max-width: 414px) {\n.explain[data-v-2f5cbb36] {\n    margin: auto 0;\n}\n.quiz_card[data-v-2f5cbb36] {\n    margin: auto 10px;\n}\n.choice_card .choice[data-v-2f5cbb36] {\n    width: 95%;\n}\n.end[data-v-2f5cbb36] {\n    margin: auto 0;\n}\n}\n", ""]);
+exports.push([module.i, "\n#quiz[data-v-2f5cbb36] {\n  text-align: center;\n  height: 100vh;\n}\n.heighta[data-v-2f5cbb36] {\n  height: 10vh;\n}\n.quiz_card[data-v-2f5cbb36] {\n  text-align: center;\n  margin: auto 20%;\n}\n.choice_card[data-v-2f5cbb36] {\n  padding-left: 0;\n}\n.img[data-v-2f5cbb36] {\n    width: 30%;\n    height: 30%;\n}\n.choice_card .choice[data-v-2f5cbb36] {\n  list-style: none;\n  padding: 0.8em 0.5em;\n  cursor: pointer;\n  background-color: #eaeaea;\n  width: 100%;\n  margin: 30px auto;\n  border-radius: 8px;\n  transition: transform ease 0.6s;\n}\n.choice_card .choice[data-v-2f5cbb36]:active {\n  transform: translateY(5px);\n}\n/* 文字サイズ */\n.result[data-v-2f5cbb36],\n.fa-circle[data-v-2f5cbb36],\n.fa-times[data-v-2f5cbb36] {\n  font-size: 2.2rem;\n}\n/* いろ */\n.fa-circle[data-v-2f5cbb36],\n.correct[data-v-2f5cbb36] {\n  color: red;\n}\n.fa-times[data-v-2f5cbb36],\n.bad[data-v-2f5cbb36] {\n  color: blue;\n}\n/* 太さ */\n.result[data-v-2f5cbb36] {\n  font-weight: bold;\n}\n.end_card a[data-v-2f5cbb36] {\n  text-decoration: none;\n  color: #000;\n  font-weight: bold;\n}\n.box14[data-v-2f5cbb36] {\n  padding: 1.5em 0.5em 0;\n  margin: 2em 0;\n  color: #565656;\n  background: #ffeaea;\n  box-shadow: 0px 0px 0px 10px #ffeaea;\n  border: dashed 2px #ffc3c3;\n  border-radius: 8px;\n}\n.box14 p[data-v-2f5cbb36] {\n  font-size: 1.3rem;\n  margin: 0;\n  padding: 0;\n}\n.box14 .difficulty_box[data-v-2f5cbb36] {\n  text-align: right;\n  margin-top: 5px;\n}\n.box14 .difficulty[data-v-2f5cbb36] {\n  font-size: 10px;\n  color: rgba(66, 65, 131, 0.97);\n}\n.explain[data-v-2f5cbb36] {\n  border: 3px solid #999;\n  margin: auto 20%;\n  padding: 0.8em 0.5em;\n  border-radius: 8px;\n}\n.explain p[data-v-2f5cbb36] {\n  font-size: 1.3rem;\n}\n.explain_main[data-v-2f5cbb36] {\n  text-align: left;\n}\n.explain_title[data-v-2f5cbb36] {\n  font-weight: bold;\n  font-size: 1.3rem;\n}\n.btn[data-v-2f5cbb36] {\n  margin: 0.8em 3em;\n  border: 1px solid #fff;\n  background-color: rgba(250, 207, 76, 0.97);\n  box-shadow: 0 4px rgba(189, 156, 57, 0.97);\n  border-radius: 100px;\n  transition: transform ease 0.4s;\n  height: 50px;\n  cursor: pointer;\n}\n.btn[data-v-2f5cbb36]:active {\n  transform: translateY(4px);\n}\n.btn span[data-v-2f5cbb36] {\n  padding: auto;\n  color: #fff;\n  font-size: 1.5rem;\n}\n.end_card[data-v-2f5cbb36] {\n  border: 3px solid #999;\n  margin: auto 20%;\n  padding: 0.8em 0.5em;\n  border-radius: 8px;\n}\n.end_card p[data-v-2f5cbb36] {\n  font-size: 2rem;\n}\n.end_card ul[data-v-2f5cbb36] {\n  padding-left: 0;\n}\n.end[data-v-2f5cbb36] {\n  list-style: none;\n}\n.btn a[data-v-2f5cbb36] {\n  padding: auto;\n  color: #fff;\n  font-size: 1.5rem;\n}\n@media screen and (max-width: 414px) {\n.explain[data-v-2f5cbb36] {\n    margin: auto 0;\n}\n.quiz_card[data-v-2f5cbb36] {\n    margin: auto 10px;\n}\n.choice_card .choice[data-v-2f5cbb36] {\n    width: 95%;\n}\n.img[data-v-2f5cbb36] {\n    width: 70%;\n    height: 50%;\n}\n.end[data-v-2f5cbb36] {\n    margin: auto 0;\n}\n}\n", ""]);
 
 // exports
 
@@ -8002,7 +8051,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.button[data-v-2225126b] {\n  font-size: 20%;\n}\n.img[data-v-2225126b] {\n  width: 500px;\n}\n", ""]);
+exports.push([module.i, "\n.adminNew[data-v-2225126b] {\n  display: flex;\n  height: 100vh;\n  background-color: #cecdcd;\n}\n.createMain[data-v-2225126b] {\n    padding: 10px 10px 10px 30px;\n    flex: 1;\n    overflow-y: scroll;\n}\n.newForm[data-v-2225126b] {\n  display: flex;\n  flex-direction: column;\n}\n.button[data-v-2225126b] {\n  font-size: 20%;\n}\nlabel[data-v-2225126b] {\n  margin: 5px;\n}\ntextarea[data-v-2225126b] {\n  width: 70%;\n  height: 100px;\n  border-radius: 30px;\n  padding: 10px 20px;\n}\n.img[data-v-2225126b] {\n  width: 500px;\n}\n.text[data-v-2225126b] {\n  font-weight: bold;\n}\n", ""]);
 
 // exports
 
@@ -8021,7 +8070,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "\n.button[data-v-7c3d936b] {\n    font-size: 20%;\n}\n", ""]);
+exports.push([module.i, "\n.button[data-v-7c3d936b] {\n    font-size: 20%;\n}\n.editQuiz[data-v-7c3d936b] {\n    display: flex;\n    height: 100vh;\n    background-color: #cecdcd;\n}\n.editMain[data-v-7c3d936b] {\n    padding: 10px 10px 10px 30px;\n    flex: 1;\n    overflow-y: scroll;\n}\n.editForm[data-v-7c3d936b] {\n    display: flex;\n    flex-direction: column;\n}\n.button[data-v-7c3d936b] {\n    font-size: 20%;\n}\nlabel[data-v-7c3d936b] {\n    margin: 5px;\n}\ntextarea[data-v-7c3d936b] {\n    width: 70%;\n    height: 100px;\n    border-radius: 30px;\n    padding: 10px 20px;\n}\n.img[data-v-7c3d936b] {\n    width: 500px;\n}\n.text[data-v-7c3d936b] {\n    font-weight: bold;\n}\n.historyFlex[data-v-7c3d936b] {\n    display: flex;\n    background-color: antiquewhite;\n    padding: 20px;\n    border-radius: 10px;\n    margin: 10px;\n}\n.history[data-v-7c3d936b] {\n    margin: auto;\n    width: 40%;\n}\n.history p[data-v-7c3d936b] {\n    border-bottom: 1px solid #000000;\n}\n.imgEdit[data-v-7c3d936b] {\n    height: 50px;\n    overflow-x: scroll;\n}\n", ""]);
 
 // exports
 
@@ -40718,9 +40767,10 @@ var render = function() {
                       _c(
                         "span",
                         {
+                          staticClass: "selectBtn1",
                           on: {
                             click: function($event) {
-                              return _vm.deleteCheck(item.id)
+                              return _vm.deleteCheck(item.id, item.question)
                             }
                           }
                         },
@@ -41594,197 +41644,206 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h1", [_vm._v("Quiz")]),
-    _vm._v(" "),
-    _c("form", [
-      _c("label", [
-        _vm._v("\n      問題文を入力\n      "),
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.quiz,
-              expression: "quiz"
-            }
-          ],
-          attrs: { placeholder: "問題を入力" },
-          domProps: { value: _vm.quiz },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.quiz = $event.target.value
-            }
-          }
-        })
-      ]),
+  return _c(
+    "div",
+    { staticClass: "adminNew" },
+    [
+      _c("sideBar"),
       _vm._v(" "),
-      _c("label", [
-        _c(
-          "select",
-          {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.selectCategory,
-                expression: "selectCategory "
-              }
-            ],
-            on: {
-              change: [
-                function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.selectCategory = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                },
-                _vm.checkCategory
-              ]
-            }
-          },
-          _vm._l(_vm.category, function(categoryName) {
-            return _c("option", [_vm._v(_vm._s(categoryName.category))])
-          }),
-          0
-        )
-      ]),
-      _vm._v(" "),
-      _c("label", [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.choice1,
-              expression: "choice1"
-            }
-          ],
-          attrs: { type: "text", placeholder: "選択肢1) 鹿児島" },
-          domProps: { value: _vm.choice1 },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.choice1 = $event.target.value
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("label", [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.choice2,
-              expression: "choice2"
-            }
-          ],
-          attrs: { type: "text", placeholder: "選択肢2) 東京" },
-          domProps: { value: _vm.choice2 },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.choice2 = $event.target.value
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("label", [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.answer,
-              expression: "answer"
-            }
-          ],
-          attrs: { type: "text", placeholder: "答え) 沖縄" },
-          domProps: { value: _vm.answer },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.answer = $event.target.value
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("label", [
-        _vm.view
-          ? _c("input", {
-              attrs: { type: "file" },
-              on: { change: _vm.confirmImage }
-            })
-          : _vm._e(),
+      _c("div", { staticClass: "createMain" }, [
+        _c("h1", [_vm._v("Quiz")]),
         _vm._v(" "),
-        _vm.confirmedImage
-          ? _c("p", [
-              _c("img", {
-                staticClass: "img",
-                attrs: { src: _vm.confirmedImage, alt: "" }
-              })
-            ])
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c("label", [
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.explainSentence,
-              expression: "explainSentence"
-            }
-          ],
-          attrs: { placeholder: "解説" },
-          domProps: { value: _vm.explainSentence },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+        _c("form", [
+          _c("label", [
+            _vm._v("\n        問題文を入力\n        "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.quiz,
+                  expression: "quiz"
+                }
+              ],
+              attrs: { placeholder: "問題を入力" },
+              domProps: { value: _vm.quiz },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.quiz = $event.target.value
+                }
               }
-              _vm.explainSentence = $event.target.value
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "button",
-          on: {
-            click: function($event) {
-              return _vm.onSubmit()
-            }
-          }
-        },
-        [_vm._v("送信する")]
-      )
-    ]),
-    _vm._v("\n  " + _vm._s(_vm.categoryId) + "\n")
-  ])
+            })
+          ]),
+          _vm._v(" "),
+          _c("label", [
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.selectCategory,
+                    expression: "selectCategory "
+                  }
+                ],
+                on: {
+                  change: [
+                    function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.selectCategory = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                    _vm.checkCategory
+                  ]
+                }
+              },
+              _vm._l(_vm.category, function(categoryName) {
+                return _c("option", [_vm._v(_vm._s(categoryName.category))])
+              }),
+              0
+            )
+          ]),
+          _vm._v(" "),
+          _c("label", [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.choice1,
+                  expression: "choice1"
+                }
+              ],
+              attrs: { type: "text", placeholder: "選択肢1) 鹿児島" },
+              domProps: { value: _vm.choice1 },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.choice1 = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("label", [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.choice2,
+                  expression: "choice2"
+                }
+              ],
+              attrs: { type: "text", placeholder: "選択肢2) 東京" },
+              domProps: { value: _vm.choice2 },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.choice2 = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("label", [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.answer,
+                  expression: "answer"
+                }
+              ],
+              attrs: { type: "text", placeholder: "答え) 沖縄" },
+              domProps: { value: _vm.answer },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.answer = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("label", [
+            _vm.view
+              ? _c("input", {
+                  attrs: { type: "file" },
+                  on: { change: _vm.confirmImage }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.confirmedImage
+              ? _c("p", [
+                  _c("img", {
+                    staticClass: "img",
+                    attrs: { src: _vm.confirmedImage, alt: "" }
+                  })
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _c("label", [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.explainSentence,
+                  expression: "explainSentence"
+                }
+              ],
+              attrs: { placeholder: "解説" },
+              domProps: { value: _vm.explainSentence },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.explainSentence = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "button",
+              on: {
+                click: function($event) {
+                  return _vm.onSubmit()
+                }
+              }
+            },
+            [_vm._v("送信する")]
+          )
+        ]),
+        _vm._v("\n    " + _vm._s(_vm.categoryId) + "\n  ")
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -41808,203 +41867,279 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "edit_quiz" }, [
-    _c("h1", [_vm._v("Edit Quiz")]),
-    _vm._v(" "),
-    _c("form", [
-      _c("label", [
-        _vm._v(" 問題文を入力\n            "),
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.editData.question,
-              expression: "editData.question"
-            }
-          ],
-          attrs: { placeholder: _vm.orderData.question },
-          domProps: { value: _vm.editData.question },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.editData, "question", $event.target.value)
-            }
-          }
-        })
-      ]),
+  return _c(
+    "div",
+    { staticClass: "editQuiz" },
+    [
+      _c("sideBar"),
       _vm._v(" "),
-      _c("label", [
-        _c(
-          "select",
-          {
-            directives: [
+      _c("div", { staticClass: "editMain" }, [
+        _c("h1", [_vm._v("Edit Quiz")]),
+        _vm._v(" "),
+        _c("form", { staticClass: "editForm" }, [
+          _c("label", [
+            _c("span", { staticClass: "text" }, [_vm._v("問題文を入力")]),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.editData.question,
+                  expression: "editData.question"
+                }
+              ],
+              attrs: { placeholder: _vm.orderData.question },
+              domProps: { value: _vm.editData.question },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.editData, "question", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("label", [
+            _c("span", { staticClass: "text" }, [_vm._v("カテゴリー：")]),
+            _vm._v(" "),
+            _c(
+              "select",
               {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.selectCategory,
-                expression: "selectCategory "
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.selectCategory,
+                    expression: "selectCategory "
+                  }
+                ],
+                on: {
+                  change: [
+                    function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.selectCategory = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    },
+                    _vm.checkCategory
+                  ]
+                }
+              },
+              _vm._l(_vm.category, function(categoryName) {
+                return _c("option", [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(categoryName.category) +
+                      "\n                    "
+                  )
+                ])
+              }),
+              0
+            )
+          ]),
+          _vm._v(" "),
+          _c("label", [
+            _c("span", { staticClass: "text" }, [_vm._v("選択肢1: ")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.editData.choice1,
+                  expression: "editData.choice1"
+                }
+              ],
+              attrs: {
+                type: "text",
+                placeholder: "選択肢1) 鹿児島",
+                placeholder: _vm.orderData.choice1
+              },
+              domProps: { value: _vm.editData.choice1 },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.editData, "choice1", $event.target.value)
+                }
               }
-            ],
-            on: {
-              change: [
-                function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.selectCategory = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                },
-                _vm.checkCategory
-              ]
-            }
-          },
-          _vm._l(_vm.category, function(categoryName) {
-            return _c("option", [
-              _vm._v(
-                "\n                    " +
-                  _vm._s(categoryName.category) +
-                  "\n                "
-              )
-            ])
-          }),
-          0
-        )
-      ]),
-      _vm._v(" "),
-      _c("label", [
-        _c("input", {
-          directives: [
+            })
+          ]),
+          _vm._v(" "),
+          _c("label", [
+            _c("span", { staticClass: "text" }, [_vm._v("選択肢2: ")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.editData.choice2,
+                  expression: "editData.choice2"
+                }
+              ],
+              attrs: {
+                type: "text",
+                placeholder: "選択肢2) 東京",
+                placeholder: _vm.orderData.choice2
+              },
+              domProps: { value: _vm.editData.choice2 },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.editData, "choice2", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("label", [
+            _c("span", { staticClass: "text" }, [_vm._v("正解選択肢: ")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.editData.correct,
+                  expression: "editData.correct"
+                }
+              ],
+              attrs: {
+                type: "text",
+                placeholder: "答え) 沖縄",
+                placeholder: _vm.orderData.correct
+              },
+              domProps: { value: _vm.editData.correct },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.editData, "correct", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _c("label", [
+            _c("span", { staticClass: "text" }, [_vm._v("解説: ")]),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.editData.explain_sentence,
+                  expression: "editData.explain_sentence"
+                }
+              ],
+              attrs: { placeholder: _vm.orderData.explain_sentence },
+              domProps: { value: _vm.editData.explain_sentence },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(
+                    _vm.editData,
+                    "explain_sentence",
+                    $event.target.value
+                  )
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
             {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.editData.choice1,
-              expression: "editData.choice1"
-            }
-          ],
-          attrs: {
-            type: "text",
-            placeholder: "選択肢1) 鹿児島",
-            placeholder: _vm.orderData.choice1
-          },
-          domProps: { value: _vm.editData.choice1 },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+              staticClass: "button",
+              on: {
+                click: function($event) {
+                  return _vm.onSubmit()
+                }
               }
-              _vm.$set(_vm.editData, "choice1", $event.target.value)
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("label", [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.editData.choice2,
-              expression: "editData.choice2"
-            }
-          ],
-          attrs: {
-            type: "text",
-            placeholder: "選択肢2) 東京",
-            placeholder: _vm.orderData.choice2
-          },
-          domProps: { value: _vm.editData.choice2 },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.editData, "choice2", $event.target.value)
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("label", [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.editData.correct,
-              expression: "editData.correct"
-            }
-          ],
-          attrs: {
-            type: "text",
-            placeholder: "答え) 沖縄",
-            placeholder: _vm.orderData.correct
-          },
-          domProps: { value: _vm.editData.correct },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.editData, "correct", $event.target.value)
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c("label"),
-      _vm._v(" "),
-      _c("label", [
-        _c("textarea", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.editData.explain_sentence,
-              expression: "editData.explain_sentence"
-            }
-          ],
-          attrs: { placeholder: _vm.orderData.explain_sentence },
-          domProps: { value: _vm.editData.explain_sentence },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.editData, "explain_sentence", $event.target.value)
-            }
-          }
-        })
-      ]),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "button",
-          on: {
-            click: function($event) {
-              return _vm.onSubmit()
-            }
-          }
-        },
-        [_vm._v("変更する")]
-      )
-    ]),
-    _vm._v(
-      "\n    " + _vm._s(_vm.editData) + "\n    " + _vm._s(_vm.orderData) + "\n"
-    )
-  ])
+            },
+            [_vm._v("変更する")]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "historyFlex" }, [
+          _c("div", { staticClass: "history" }, [
+            _c("p", [_vm._v("変更前")]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.orderData.question))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.orderData.correct))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.orderData.choice1))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.orderData.choice2))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.orderData.explain_sentence))]),
+            _vm._v(" "),
+            _vm.orderData.image_name
+              ? _c("p", { staticClass: "imgEdit" }, [
+                  _vm._v(_vm._s(_vm.orderData.image_name))
+                ])
+              : _c("p", [_vm._v("null")]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.orderData.category_id))])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "history" }, [
+            _c("p", [_vm._v("変更後")]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.editData.question))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.editData.correct))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.editData.choice1))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.editData.choice2))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.editData.explain_sentence))]),
+            _vm._v(" "),
+            _vm.editData.image_name
+              ? _c("p", { staticClass: "imgEdit" }, [
+                  _vm._v(_vm._s(_vm.editData.image_name))
+                ])
+              : _c("p", [_vm._v("null")]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.editData.category_id))])
+          ])
+        ])
+      ])
+    ],
+    1
+  )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("label", [
+      _c("span", { staticClass: "text" }, [_vm._v("画像: ")])
+    ])
+  }
+]
 render._withStripped = true
 
 

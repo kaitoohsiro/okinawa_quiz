@@ -63,6 +63,7 @@ class QuizWriteRepository
      * @param $editData
      */
     public function editQuiz ($editData) {
+        // TODO 編集で画像の変更もできるようにする
         $this->model::where('id', '=', $editData['id'])
             ->update([
             'question' => $editData['question'],

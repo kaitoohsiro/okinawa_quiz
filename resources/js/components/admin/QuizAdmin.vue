@@ -18,7 +18,7 @@
                 <th>{{ item.question }}</th>
                 <td><img class="img" :src="`${item.image_name}`" /></td>
                 <td>{{ item.category_id }}</td>
-                <td><RouterLink :to="{name: 'quiz_edit', params: {list: item}}">編集</RouterLink> / <span @click="deleteCheck(item.id)">削除</span></td>
+                <td><RouterLink :to="{name: 'quiz_edit', params: {list: item}}">編集</RouterLink> / <span class="selectBtn1" @click="deleteCheck(item.id, item.question)">削除</span></td>
               </tr>
             </tbody>
           </table>
@@ -40,6 +40,7 @@ export default {
       quizId: null,
       deleteDisplay: false,
       quizCount: 0,
+      selectQuiz: null,
     };
   },
   created() {
@@ -59,6 +60,7 @@ export default {
     deleteCheck: function(quizId) {
       this.quizId = quizId;
       this.deleteDisplay = true;
+      this.selectQuiz = question;
     },
     async doDelete() {
       this.deleteDisplay = false;
@@ -66,6 +68,7 @@ export default {
         id: this.quizId
       };
       await axios.post("/api/admin/quiz/delete", quizId);
+      this.getQuizList();
     },
     cancel: function() {
       this.deleteDisplay = false;
@@ -110,5 +113,43 @@ export default {
     .tableHeader:nth-child(3),
     .tableHeader:nth-child(4) {
       width: 10%;
+    }
+    #delete{
+      /*　要素を重ねた時の順番　*/
+      z-index:1;
+      /*　画面全体を覆う設定　*/
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background-color:rgba(0,0,0,0.5);
+      /*　画面の中央に要素を表示させる設定　*/
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .selectBtn1 {
+      cursor: pointer;
+    }
+    #content{
+      z-index:2;
+      width:50%;
+      padding: 1em;
+      background:#fff;
+      text-align: center;
+    }
+    .selectBtn {
+      cursor: pointer;
+      padding: 10px;
+      margin: 10px 260px;
+      text-align: center;
+      border-radius: 20px;
+    }
+    .delete:hover {
+      background-color: rgb(255, 72, 0);
+    }
+    .cansel:hover {
+      background-color: aqua;
     }
 </style>
