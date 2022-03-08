@@ -45,4 +45,5 @@
 ## DB
 
 -   heroku の DB
--   pgSQL
+-   pgSQ
+-   awsS3
